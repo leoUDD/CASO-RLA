@@ -200,5 +200,11 @@ class StandardizeDatabaseTests(unittest.TestCase):
         self.assertEqual(codes, ['CL', 'CO', 'Sin país'])  # países sin stock disponible no aparecen; 'Sin país' al final
         self.assertEqual(std.search(self.db, '', country='Sin país')['total'], 1)
 
+    def test_filter_without_stock(self):
+        total = std.search(self.db, '')['total']
+        with_stock, without = std.search(self.db, '', status='with_stock')['total'], std.search(self.db, '', status='without_stock')['total']
+        self.assertEqual(with_stock + without, total)  # cada producto está en exactamente uno de los dos filtros
+        self.assertTrue(all(not r['stock_by_country'] for r in std.search(self.db, '', status='without_stock')['rows']))
+
 if __name__ == '__main__':
     unittest.main()

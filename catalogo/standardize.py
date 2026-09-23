@@ -418,7 +418,8 @@ FILTERS = {
     'classified': 'p.family_id IS NOT NULL', 'review': "(p.method LIKE 'Revisar%' OR p.operational_status<>'Activo')",
     'duplicates': 'p.duplicate_group IS NOT NULL', 'dup_same': "p.duplicate_kind='Mismo país'",
     'dup_cross': "p.duplicate_kind='Otro país'", 'linked': "p.legacy_codes LIKE '%,%'",
-    'with_stock': 'p.stock_available>0', 'manual': "m.origin='manual'",
+    'with_stock': 'p.stock_available>0', 'without_stock': '(p.stock_available IS NULL OR p.stock_available<=0)',
+    'manual': "m.origin='manual'",
 }
 
 
