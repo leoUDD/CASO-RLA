@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import sqlite3
+import time
 
 from catalogo import std_rules as R
 
@@ -126,7 +127,7 @@ def export(db, out_path):
                   for t in ('productos', 'codigos_origen', 'marcas', 'familias', 'sitios', 'inventario')}
         assert out.execute('PRAGMA integrity_check').fetchone()[0] == 'ok'
         assert not out.execute('PRAGMA foreign_key_check').fetchall()
-    tmp.replace(out_path)
+    _replace(tmp, out_path)
     return {'path': str(out_path), 'tables': counts, 'load_id': load}
 
 
@@ -143,6 +144,25 @@ DESCRIPTIONS = {
     'v_catalogo': 'Vista: catálogo listo para consultar (con marca, categoría y códigos de origen)',
     'v_stock_por_pais': 'Vista: stock por producto, país y tipo de sitio',
 }
+
+
+class ExportLocked(Exception):
+    """El archivo exportado está abierto en otro programa (Windows no permite reemplazarlo)."""
+
+
+def _replace(tmp, out_path, attempts=6, wait=0.5):
+    # En Windows un archivo abierto (consola sqlite3, DB Browser, sincronización de OneDrive) no se puede
+    # reemplazar. Se reintenta unos segundos; si sigue ocupado, se descarta la copia temporal y se avisa.
+    for attempt in range(attempts):
+        try:
+            tmp.replace(out_path)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                tmp.unlink(missing_ok=True)
+                raise ExportLocked(f'No se pudo actualizar {out_path.name}: el archivo está abierto en otro programa. '
+                                   'Ciérrelo; se actualizará en el próximo cambio.')
+            time.sleep(wait)
 
 
 def info(path):
