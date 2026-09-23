@@ -1,0 +1,212 @@
+[
+  {
+    "column": "Product ID",
+    "target": "legacy_products.legacy_code",
+    "rule": "Texto; clave única junto con source_id. No es master_id."
+  },
+  {
+    "column": "Description",
+    "target": "standardization_proposals → master_products.standard_name",
+    "rule": "Conservar original; nombre aprobado por reglas de familia."
+  },
+  {
+    "column": "Stock",
+    "target": "inventory_snapshots.stock",
+    "rule": "Decimal; NULL distinto de cero; negativo se señala."
+  },
+  {
+    "column": "Type",
+    "target": "master_products.product_type",
+    "rule": "CHECK ITEM/LABOR/MISCCHARGE/PARTS; conflicto requiere revisión."
+  },
+  {
+    "column": "ITEMCATEGORY",
+    "target": "master_products.serialization",
+    "rule": "SERIAL/NONSERIAL; no representa número de serie de activo."
+  },
+  {
+    "column": "Package",
+    "target": "master_products.package_type",
+    "rule": "ITEM/PACKAGE; no inventar componentes ni cantidades."
+  },
+  {
+    "column": "Cost",
+    "target": "snapshot_commercial.cost",
+    "rule": "Decimal; moneda desconocida permanece NULL."
+  },
+  {
+    "column": "Replacement Cost",
+    "target": "snapshot_commercial.replacement_cost",
+    "rule": "Decimal observado por sitio/carga hasta confirmar alcance."
+  },
+  {
+    "column": "SITENAME",
+    "target": "sites.name",
+    "rule": "Nombre vigente; conservar nombre observado en raw_records."
+  },
+  {
+    "column": "MANUFACTURER",
+    "target": "manufacturer_aliases → manufacturers → master_products.manufacturer_id",
+    "rule": "Alias aprobado; no fusionar marcas por similitud automática."
+  },
+  {
+    "column": "MODEL",
+    "target": "master_products.model",
+    "rule": "Texto; conservar signos, sufijos y números."
+  },
+  {
+    "column": "SITEID",
+    "target": "sites.source_site_code",
+    "rule": "Clave dentro de fuente; faltante bloquea publicación."
+  },
+  {
+    "column": "Availability Group",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Clasificación operativa original; no es familia canónica."
+  },
+  {
+    "column": "ACCUMULATEDDEPRECIATIONGLCODE",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Código contable como texto; hoy vacío, no generar etiqueta para NULL."
+  },
+  {
+    "column": "Report Group",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Puede alimentar propuesta de familia mediante regla aprobada."
+  },
+  {
+    "column": "WRITEOFFGLCODE",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Código contable como texto; confirmar significado, no inferirlo."
+  },
+  {
+    "column": "Bin Loaction",
+    "target": "inventory_snapshots.bin_location",
+    "rule": "Preservar encabezado original mal escrito en raw_json; semántica pendiente."
+  },
+  {
+    "column": "CANRENT",
+    "target": "inventory_snapshots.can_rent",
+    "rule": "RENTABLE/NOTRENTABLE → 1/0; condición local."
+  },
+  {
+    "column": "CANSELL",
+    "target": "inventory_snapshots.can_sell",
+    "rule": "SELLABLE/NOTSELLABLE → 1/0; condición local."
+  },
+  {
+    "column": "CANSUBRENT",
+    "target": "inventory_snapshots.can_subrent",
+    "rule": "SUBRENT/NOTSUBRENT → 1/0; preservar granularidad de origen."
+  },
+  {
+    "column": "COGSGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Grupo contable original; vacío no crea categoría."
+  },
+  {
+    "column": "TAXGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Etiqueta tributaria, no tasa calculada ni país confirmado."
+  },
+  {
+    "column": "CostoTotal",
+    "target": "snapshot_commercial.reported_total_cost",
+    "rule": "Conservar importe informado; no sustituir por Stock × Cost."
+  },
+  {
+    "column": "DEPARTMENT",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Departamento original; contexto, no familia automática."
+  },
+  {
+    "column": "DEPRCIATIONGLCODE",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Código original textual; no corregir su contenido por nombre de columna."
+  },
+  {
+    "column": "DISCOUNTGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Grupo comercial; 57% se conserva como etiqueta, no descuento aplicado."
+  },
+  {
+    "column": "AFFECTSAVAILABILITY",
+    "target": "inventory_snapshots.affects_availability",
+    "rule": "TRUE/FALSE → 1/0; no calcula disponibilidad futura."
+  },
+  {
+    "column": "REVENUEGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Clasificación de ingreso original; conservar códigos numéricos como texto."
+  },
+  {
+    "column": "RETAILPRICE",
+    "target": "snapshot_commercial.retail_price",
+    "rule": "Decimal; moneda y alcance no inferidos."
+  },
+  {
+    "column": "EXCHANGEGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Agrupación original; evidencia para propuesta, no prueba de equivalencia."
+  },
+  {
+    "column": "INVENTORYGROUP",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Agrupación original de inventario."
+  },
+  {
+    "column": "ISFREIGHT",
+    "target": "inventory_snapshots.is_freight",
+    "rule": "FREIGHT/NOTFREIGHT → 1/0; provisionalmente por observación."
+  },
+  {
+    "column": "ISMISCITEM",
+    "target": "inventory_snapshots.is_misc_item",
+    "rule": "MISCITEM → 1; vacío → NULL. No inferir False."
+  },
+  {
+    "column": "LOWRETAILPRICE",
+    "target": "snapshot_commercial.low_retail_price",
+    "rule": "Decimal observado; no validar como mínimo contractual sin definición."
+  },
+  {
+    "column": "Shelf Location",
+    "target": "inventory_snapshots.shelf_location",
+    "rule": "Ubicación textual; hoy vacía."
+  },
+  {
+    "column": "MAXIMUMQTY",
+    "target": "inventory_snapshots.maximum_qty",
+    "rule": "Decimal observado; cero se conserva, interpretación operacional pendiente."
+  },
+  {
+    "column": "MINIMUMQTY",
+    "target": "inventory_snapshots.minimum_qty",
+    "rule": "Decimal observado; no derivar alertas hasta confirmar significado."
+  },
+  {
+    "column": "SUBRENTGLCODE",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Código contable textual, puede contener VIDEO; no forzar número."
+  },
+  {
+    "column": "MSRP",
+    "target": "snapshot_commercial.msrp",
+    "rule": "Decimal; precio de referencia informado, moneda no inferida."
+  },
+  {
+    "column": "SELLGLCODE",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Código contable como texto, no medida numérica."
+  },
+  {
+    "column": "Price Group",
+    "target": "classification_values + snapshot_classifications",
+    "rule": "Grupo comercial original; hoy vacío."
+  },
+  {
+    "column": "REORDERQTY",
+    "target": "inventory_snapshots.reorder_qty",
+    "rule": "Decimal observado; no calcular pedidos automáticamente."
+  }
+]

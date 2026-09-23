@@ -1,0 +1,43 @@
+﻿campo,filas,vacios,porcentaje_vacio,distintos_originales_no_vacios,distintos_sin_espacios_exteriores,filas_con_espacios_exteriores,tokens_posible_ausencia,ejemplos_frecuentes
+Product ID,57011,0,0.0,7890,7890,0,0,"[{""valor"": ""CO IMP04"", ""filas"": 96}, {""valor"": ""5464"", ""filas"": 95}, {""valor"": ""11553"", ""filas"": 88}, {""valor"": ""10515"", ""filas"": 82}, {""valor"": ""11231"", ""filas"": 79}]"
+Description,57011,0,0.0,6869,6869,34,0,"[{""valor"": ""Caja Directa"", ""filas"": 466}, {""valor"": ""Microfono Inalambrico Lavalier / Solapa"", ""filas"": 249}, {""valor"": ""Sistema de Audio 2.1"", ""filas"": 225}, {""valor"": ""Computador Portatil"", ""filas"": 211}, {""valor"": ""Pasa Slide"", ""filas"": 161}]"
+Stock,57011,4,0.007,319,319,0,0,"[{""valor"": ""0,00"", ""filas"": 45944}, {""valor"": ""1,00"", ""filas"": 4228}, {""valor"": ""2,00"", ""filas"": 1863}, {""valor"": ""3,00"", ""filas"": 870}, {""valor"": ""4,00"", ""filas"": 731}]"
+Type,57011,1,0.0018,4,4,0,0,"[{""valor"": ""ITEM"", ""filas"": 55899}, {""valor"": ""MISCCHARGE"", ""filas"": 737}, {""valor"": ""LABOR"", ""filas"": 359}, {""valor"": ""PARTS"", ""filas"": 15}]"
+ITEMCATEGORY,57011,0,0.0,2,2,0,0,"[{""valor"": ""SERIAL"", ""filas"": 37045}, {""valor"": ""NONSERIAL"", ""filas"": 19966}]"
+Package,57011,0,0.0,2,2,0,0,"[{""valor"": ""ITEM"", ""filas"": 51080}, {""valor"": ""PACKAGE"", ""filas"": 5931}]"
+Cost,57011,0,0.0,4902,4902,0,0,"[{""valor"": ""0,00"", ""filas"": 49416}, {""valor"": ""5.000,00"", ""filas"": 117}, {""valor"": ""10.000,00"", ""filas"": 114}, {""valor"": ""20.000,00"", ""filas"": 76}, {""valor"": ""15.000,00"", ""filas"": 66}]"
+Replacement Cost,57011,195,0.342,1975,1975,0,0,"[{""valor"": ""0,00"", ""filas"": 31556}, {""valor"": ""30.000,00"", ""filas"": 785}, {""valor"": ""20.000,00"", ""filas"": 646}, {""valor"": ""15.000,00"", ""filas"": 607}, {""valor"": ""10.000,00"", ""filas"": 605}]"
+SITENAME,57011,4,0.007,137,137,0,0,"[{""valor"": ""CD Santiago"", ""filas"": 3530}, {""valor"": ""CORPORATIVO PERU"", ""filas"": 2422}, {""valor"": ""Administración Colombia"", ""filas"": 2026}, {""valor"": ""CD Bogota"", ""filas"": 1824}, {""valor"": ""H. W"", ""filas"": 1542}]"
+MANUFACTURER,57011,25355,44.4739,622,619,26,80,"[{""valor"": ""SHURE"", ""filas"": 2067}, {""valor"": ""KRAMER"", ""filas"": 2053}, {""valor"": ""NEC"", ""filas"": 1506}, {""valor"": ""BOSE"", ""filas"": 1390}, {""valor"": ""LG"", ""filas"": 1216}]"
+MODEL,57011,28061,49.2203,2435,2435,21,70,"[{""valor"": ""L1 II"", ""filas"": 262}, {""valor"": ""SLX-2"", ""filas"": 136}, {""valor"": ""L1 COMPACT"", ""filas"": 111}, {""valor"": ""SLX-4"", ""filas"": 107}, {""valor"": ""T1"", ""filas"": 106}]"
+SITEID,57011,4,0.007,137,137,0,0,"[{""valor"": ""CD SANTIAGO"", ""filas"": 3530}, {""valor"": ""CORPORATIVO PERU"", ""filas"": 2422}, {""valor"": ""ADMINISTRACIÓN COLOMB"", ""filas"": 2026}, {""valor"": ""CD BOGOTA"", ""filas"": 1824}, {""valor"": ""H. W"", ""filas"": 1542}]"
+Availability Group,57011,39222,68.7972,12,12,0,0,"[{""valor"": ""VIDEO"", ""filas"": 6517}, {""valor"": ""AUDIO"", ""filas"": 4947}, {""valor"": ""ACCESORIOS"", ""filas"": 2236}, {""valor"": ""INFORMATICA"", ""filas"": 1629}, {""valor"": ""ELECTRICIDAD"", ""filas"": 889}]"
+ACCUMULATEDDEPRECIATIONGLCODE,57011,57011,100.0,0,0,0,0,[]
+Report Group,57011,42449,74.4576,87,87,0,0,"[{""valor"": ""PROYECTORES"", ""filas"": 1342}, {""valor"": ""ALTAVOCES"", ""filas"": 1140}, {""valor"": ""ACCESORIOS"", ""filas"": 1098}, {""valor"": ""CABLES"", ""filas"": 901}, {""valor"": ""MICRÓFONOS"", ""filas"": 888}]"
+WRITEOFFGLCODE,57011,57011,100.0,0,0,0,0,[]
+Bin Loaction,57011,56999,99.979,2,2,0,0,"[{""valor"": ""N"", ""filas"": 11}, {""valor"": ""1"", ""filas"": 1}]"
+CANRENT,57011,0,0.0,2,2,0,0,"[{""valor"": ""RENTABLE"", ""filas"": 55588}, {""valor"": ""NOTRENTABLE"", ""filas"": 1423}]"
+CANSELL,57011,0,0.0,2,2,0,0,"[{""valor"": ""SELLABLE"", ""filas"": 30261}, {""valor"": ""NOTSELLABLE"", ""filas"": 26750}]"
+CANSUBRENT,57011,0,0.0,2,2,0,0,"[{""valor"": ""SUBRENT"", ""filas"": 55616}, {""valor"": ""NOTSUBRENT"", ""filas"": 1395}]"
+COGSGROUP,57011,57011,100.0,0,0,0,0,[]
+TAXGROUP,57011,56853,99.7229,4,4,0,0,"[{""valor"": ""MIAMI"", ""filas"": 95}, {""valor"": ""PERU"", ""filas"": 55}, {""valor"": ""0%"", ""filas"": 7}, {""valor"": ""ITEM GROUP"", ""filas"": 1}]"
+CostoTotal,57011,4,0.007,3443,3443,0,0,"[{""valor"": ""0,00"", ""filas"": 52758}, {""valor"": ""10.000,00"", ""filas"": 42}, {""valor"": ""20.000,00"", ""filas"": 33}, {""valor"": ""30.000,00"", ""filas"": 26}, {""valor"": ""150.000,00"", ""filas"": 23}]"
+DEPARTMENT,57011,12402,21.7537,29,29,0,0,"[{""valor"": ""VIDEO"", ""filas"": 14835}, {""valor"": ""AUDIO"", ""filas"": 12540}, {""valor"": ""ILUMINACION"", ""filas"": 3072}, {""valor"": ""ACCESORIOS"", ""filas"": 3032}, {""valor"": ""INFORMATICA"", ""filas"": 2560}]"
+DEPRCIATIONGLCODE,57011,57011,100.0,0,0,0,0,[]
+DISCOUNTGROUP,57011,57009,99.9965,1,1,0,0,"[{""valor"": ""57%"", ""filas"": 2}]"
+AFFECTSAVAILABILITY,57011,0,0.0,2,2,0,0,"[{""valor"": ""TRUE"", ""filas"": 56143}, {""valor"": ""FALSE"", ""filas"": 868}]"
+REVENUEGROUP,57011,105,0.1842,51,51,0,0,"[{""valor"": ""ACC"", ""filas"": 21983}, {""valor"": ""AUDIO"", ""filas"": 10069}, {""valor"": ""VIDEO"", ""filas"": 4993}, {""valor"": ""AUDIO Y VIDEO FIJOS"", ""filas"": 3737}, {""valor"": ""ILUMINACIÓN"", ""filas"": 3653}]"
+RETAILPRICE,57011,10473,18.3701,269,269,0,0,"[{""valor"": ""0,00"", ""filas"": 42611}, {""valor"": ""1,00"", ""filas"": 139}, {""valor"": ""380.000,00"", ""filas"": 91}, {""valor"": ""130.000,00"", ""filas"": 86}, {""valor"": ""50.000,00"", ""filas"": 84}]"
+EXCHANGEGROUP,57011,34439,60.4076,87,87,0,0,"[{""valor"": ""CABLES DE AUDIO"", ""filas"": 2466}, {""valor"": ""CABLES VIDEO"", ""filas"": 2159}, {""valor"": ""ACCESORIOS GENERALES"", ""filas"": 1594}, {""valor"": ""MONITORES Y TV"", ""filas"": 1251}, {""valor"": ""ACCESORIOS MONTAJE"", ""filas"": 1234}]"
+INVENTORYGROUP,57011,56834,99.6895,2,2,0,0,"[{""valor"": ""TABLERO ELECTRICO"", ""filas"": 175}, {""valor"": ""CHAQUETAS"", ""filas"": 2}]"
+ISFREIGHT,57011,0,0.0,2,2,0,0,"[{""valor"": ""NOTFREIGHT"", ""filas"": 56779}, {""valor"": ""FREIGHT"", ""filas"": 232}]"
+ISMISCITEM,57011,56418,98.9598,1,1,0,0,"[{""valor"": ""MISCITEM"", ""filas"": 593}]"
+LOWRETAILPRICE,57011,181,0.3175,4,4,0,0,"[{""valor"": ""0"", ""filas"": 56726}, {""valor"": ""68000"", ""filas"": 51}, {""valor"": ""250000"", ""filas"": 36}, {""valor"": ""500000"", ""filas"": 17}]"
+Shelf Location,57011,57011,100.0,0,0,0,0,[]
+MAXIMUMQTY,57011,41057,72.0159,1,1,0,0,"[{""valor"": ""0"", ""filas"": 15954}]"
+MINIMUMQTY,57011,41057,72.0159,1,1,0,0,"[{""valor"": ""0"", ""filas"": 15954}]"
+SUBRENTGLCODE,57011,1122,1.968,3,3,0,0,"[{""valor"": ""5000"", ""filas"": 50341}, {""valor"": ""ILUMINACIÓN"", ""filas"": 3152}, {""valor"": ""VIDEO"", ""filas"": 2396}]"
+MSRP,57011,54200,95.0694,6,6,0,0,"[{""valor"": ""0"", ""filas"": 2703}, {""valor"": ""58000"", ""filas"": 50}, {""valor"": ""271008"", ""filas"": 28}, {""valor"": ""19159"", ""filas"": 24}, {""valor"": ""100000"", ""filas"": 4}]"
+SELLGLCODE,57011,1107,1.9417,1,1,0,0,"[{""valor"": ""8180"", ""filas"": 55904}]"
+Price Group,57011,57011,100.0,0,0,0,0,[]
+REORDERQTY,57011,41057,72.0159,1,1,0,0,"[{""valor"": ""0"", ""filas"": 15954}]"

@@ -1,0 +1,5804 @@
+{
+  "summary": {
+    "reviewed": 166,
+    "status": {
+      "solo categoria": 85,
+      "familia propuesta": 79,
+      "pendiente": 2
+    },
+    "inventorygroup_present": 0,
+    "inserted": 166,
+    "catalog_changed": false,
+    "version": "context-1"
+  },
+  "rows": [
+    {
+      "code": "10009",
+      "description": "PROBARProyector 6000 Ansilumenes con cable VGA y de poder",
+      "row": 162,
+      "previous_reason": "Advertencia operacional en la descripcion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "10203",
+      "description": "Chicote Mini Plug - XLR M",
+      "row": 2460,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10217",
+      "description": ".",
+      "row": 2611,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10226",
+      "description": ".",
+      "row": 2613,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10227",
+      "description": ".",
+      "row": 2619,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10288",
+      "description": "Chicote RCA M - M",
+      "row": 3524,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "10330",
+      "description": "Item Missing para accesorios fuera de R2",
+      "row": 4022,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10341",
+      "description": "Zapatillas Electrica Blanca",
+      "row": 4211,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Distribución eléctrica",
+      "category": "Energía",
+      "status": "familia propuesta",
+      "reason": "Descripcion de distribucion electrica respaldada por grupo electrico/cableado",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "10343",
+      "description": ".",
+      "row": 4299,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10345",
+      "description": ".",
+      "row": 4305,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10349",
+      "description": ".",
+      "row": 4362,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10350",
+      "description": ".",
+      "row": 4367,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10517",
+      "description": ".",
+      "row": 5148,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10520",
+      "description": ".",
+      "row": 5150,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10565",
+      "description": ".",
+      "row": 5345,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLES"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "10677",
+      "description": "Chicote Mini Plug - Mini Plug",
+      "row": 7106,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "10726",
+      "description": "Chicote S-Video",
+      "row": 7849,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "10815",
+      "description": "(PROBAR)Proyector 2000 Ansilumenes con cable VGA y de poder",
+      "row": 8975,
+      "previous_reason": "Advertencia operacional en la descripcion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "10826",
+      "description": ".",
+      "row": 9052,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "10854",
+      "description": ".",
+      "row": 9368,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "10866",
+      "description": "Chicote RCA M-M",
+      "row": 9557,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11179",
+      "description": "Extension Chuco 16A",
+      "row": 13441,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11180",
+      "description": "Extension Chuco 32A Trifasico 20Mts.",
+      "row": 13505,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11181",
+      "description": "Chicote SPK M-M. 4 Polos (Line Array)",
+      "row": 13575,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11200",
+      "description": "Extension Chuco 63A Trifasico 10Mts.",
+      "row": 14441,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11206",
+      "description": "Extension UTP M-H 5 Mts.",
+      "row": 14575,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE RED"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11209",
+      "description": "Chicote energia Y",
+      "row": 14586,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11210",
+      "description": "Zapatilla Chuco 16A Monofasico",
+      "row": 14607,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Distribución eléctrica",
+      "category": "Energía",
+      "status": "familia propuesta",
+      "reason": "Descripcion de distribucion electrica respaldada por grupo electrico/cableado",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Conectividad"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11236",
+      "description": "Telón eléctrico frontal 2,656 x 1,494 mts",
+      "row": 14972,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Pantallas de proyección",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Descripcion de telon y contexto Video; grupo Proyectores demasiado amplio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11307",
+      "description": "Capsula Lavalier",
+      "row": 15455,
+      "previous_reason": "Capsula: confirmar microfono funcional o componente",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "11346",
+      "description": "Chicote VGA M - 5 BNC M",
+      "row": 15881,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11374",
+      "description": "Telon Colgante Manual 2,13x2,13",
+      "row": 16154,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Pantallas de proyección",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Descripcion de telon y contexto Video; grupo Proyectores demasiado amplio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11410",
+      "description": "Transicion Chuco 16A H a 220 H",
+      "row": 16245,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11411",
+      "description": "Transicion Chuco 16A H a 220 M",
+      "row": 16253,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11465",
+      "description": "Conector Macho Volante XLR-3",
+      "row": 16716,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11466",
+      "description": "Conector Hembra Volante XLR-3",
+      "row": 16720,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11467",
+      "description": "Conector Stereo Plug 6.3 Metal",
+      "row": 16723,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11468",
+      "description": "Copla BNC Hembra / Plug RCA",
+      "row": 16725,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11475",
+      "description": "Conversor VGA / HDMI",
+      "row": 16750,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Procesamiento y distribución de video",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Conversion de señal explicita y contexto Video",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11586",
+      "description": "Chicote XLR",
+      "row": 17843,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11586.1",
+      "description": "Chicote XLR",
+      "row": 17893,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "11705",
+      "description": "Extension Chuco 15 mts 16A",
+      "row": 18491,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11718",
+      "description": "Copla RCA",
+      "row": 18742,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11719",
+      "description": "Copla Plug",
+      "row": 18744,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "11723",
+      "description": "Tarjeta de Video 1.5G HD/SD-SDI",
+      "row": 18751,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11726",
+      "description": ".",
+      "row": 18756,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11727",
+      "description": "Proyector DLP de 11000 ansilúmenes WUXGA",
+      "row": 18758,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11776",
+      "description": "Kit Interactivo",
+      "row": 19075,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "11821",
+      "description": "Set de bateria PGDMK6",
+      "row": 19407,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "11855",
+      "description": "Cordon trifasico chucos Rojos",
+      "row": 19580,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "12068",
+      "description": "Sistema de Proyeccion Misti Simple",
+      "row": 21010,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12069",
+      "description": "Sistema de Proyección Misti Doble",
+      "row": 21011,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12070",
+      "description": "Sistema Proyeccion Misti Triple",
+      "row": 21012,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12076",
+      "description": "Sistema de Proyeccion (salon Sabancaya 1 o 2 o Foyer) o (sala 1o2o3)",
+      "row": 21067,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12078",
+      "description": "Sistema proyeccion ( sala 1o2o3) o (salon sabayanca 1 o 2 o Foyer)",
+      "row": 21071,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12084",
+      "description": "Sistema Simple adicional para Proyeccion (Cusco)",
+      "row": 21108,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12086",
+      "description": "Sistema Triple adicional para proyeccion (cusco)",
+      "row": 21109,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROJECTOR"
+        }
+      ]
+    },
+    {
+      "code": "12105",
+      "description": "Sistema de proyeccion simple mecano 2x3 Arequipa",
+      "row": 21316,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12106",
+      "description": "Sistema de proyeccion doble mecano 2x3 Arequipa",
+      "row": 21318,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12133",
+      "description": "Cables",
+      "row": 21727,
+      "previous_reason": "Tipo distinto de ITEM: revisar naturaleza del registro",
+      "family": null,
+      "category": null,
+      "status": "pendiente",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": null
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "12244",
+      "description": "Capsula de Cintillo",
+      "row": 23221,
+      "previous_reason": "Capsula: confirmar microfono funcional o componente",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "12254",
+      "description": "Sistema Proyeccion Vergara 1/3",
+      "row": 23398,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12260",
+      "description": "Kit Proyeccion Vergara",
+      "row": 23414,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12261",
+      "description": "Sistema Audio-Proyeccion 1/3 Salon Vergara Miramar",
+      "row": 23415,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12283",
+      "description": "Kit Proyeccion Vergara 2/3",
+      "row": 23515,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12284",
+      "description": "Kit Proyeccion Vergara 3/3",
+      "row": 23516,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12285",
+      "description": "Pack Audio-Proyeccion 2/3 Salon Vergara Miramar",
+      "row": 23517,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12286",
+      "description": "Pack Audio-Proyeccion 3/3 Salon Vergara Miramar",
+      "row": 23518,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12289",
+      "description": "Kit Proyeccion Bombal 1/2",
+      "row": 23530,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12290",
+      "description": "Kit Proyeccion Bombal 2/2",
+      "row": 23531,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12291",
+      "description": "Kit Proyeccion Salones",
+      "row": 23532,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12293",
+      "description": "Pack Audio-Proyeccion 1/2 Salon Bombal MIRAMAR",
+      "row": 23534,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12294",
+      "description": "Pack Audio-Proyeccion 2/2 Salon Bombal MIRAMAR",
+      "row": 23535,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12295",
+      "description": "Pack Audio-Proyeccion Salones MIRAMAR",
+      "row": 23536,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12519",
+      "description": "Kit de bateria de 6 micrófonos",
+      "row": 25476,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "12522",
+      "description": "Capsula Lavalier",
+      "row": 25500,
+      "previous_reason": "Capsula: confirmar microfono funcional o componente",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "12548",
+      "description": "PLACA DE CONECTIVIDAD SPEAKON",
+      "row": 25784,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12574",
+      "description": "Capsula Contryman Cardioide Shure",
+      "row": 26235,
+      "previous_reason": "Capsula: confirmar microfono funcional o componente",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "12591",
+      "description": "ECRAN ELECTRICO 70X70",
+      "row": 26456,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "12596",
+      "description": "Frame 1G Kramer",
+      "row": 26535,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "12597",
+      "description": "Conector VGA Kramer WX-1N",
+      "row": 26539,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Conectividad",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "CABLE"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "4000"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES"
+        }
+      ]
+    },
+    {
+      "code": "12782",
+      "description": "Transicion 63A M a 32A H Trifasico",
+      "row": 28209,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "12783",
+      "description": "Transicion 32A a 16A Trifasico (Chicote)",
+      "row": 28245,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "12804",
+      "description": "Transicion 63A H a 32A M trifasico",
+      "row": 28532,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "12831",
+      "description": "Extension Sistema de Debate 10 Mts.",
+      "row": 28658,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "12864",
+      "description": "Chicote VGA M - 5 BNC H",
+      "row": 28912,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "12865",
+      "description": "Chicote VGA H - 5 BNC M",
+      "row": 28916,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "34566",
+      "description": "Extension energia 10 mts",
+      "row": 32885,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "40445",
+      "description": "Pass Cort Pelo a Pelo",
+      "row": 33345,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "40464",
+      "description": "Copla de Energia 3 a 2",
+      "row": 33394,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": null
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "40567",
+      "description": "Extension energia 20 mts",
+      "row": 33483,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "4102",
+      "description": "Repetidor HDMI 4K",
+      "row": 33669,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "41151",
+      "description": "Baterias recargables para microfono",
+      "row": 33688,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "44543",
+      "description": "Chicote XLR M - M",
+      "row": 33740,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "44543.1",
+      "description": "Chicote XLR M - M",
+      "row": 33762,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "51022",
+      "description": "Pas Cort Plug",
+      "row": 34245,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "5254",
+      "description": "Extension energia 15 mts",
+      "row": 34261,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "5616",
+      "description": "Extension energia hasta 2 mts",
+      "row": 34422,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "56287",
+      "description": "Parcial 20 mts",
+      "row": 34430,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": null,
+      "status": "pendiente",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": null
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLE S"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "587676",
+      "description": "Extension energia 5 mts",
+      "row": 34481,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "606026",
+      "description": "Video Proyector",
+      "row": 34677,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "69341",
+      "description": "Toma Emb. (Chuco) 16 A, 2P+T, 250V",
+      "row": 35229,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "98958",
+      "description": "Sistema In-Ear",
+      "row": 36178,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABBNC03",
+      "description": "Chicote BNC M-M",
+      "row": 36886,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABEGUIG",
+      "description": "Guirnalda Electrica",
+      "row": 36914,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABMP2RC",
+      "description": "Chicote Mini Plug ST - 2 RCA M-M",
+      "row": 37613,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABPOWSO10",
+      "description": "Extension Powercom - Socapex 10Mts.",
+      "row": 37792,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABPOWSO20",
+      "description": "Extension Powercom - Socapex 20Mts.",
+      "row": 37797,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABXH2XM",
+      "description": "Chicote XLR H - 2XLR M",
+      "row": 38447,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABXLRHH",
+      "description": "Chicote XLR H - H",
+      "row": 38453,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CABXLRHH.1",
+      "description": "Chicote XLR H - H",
+      "row": 38470,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CH5BNCMM",
+      "description": "Chicote 5 BNC M - M",
+      "row": 38862,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Video"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES VIDEO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CHSDAKG1",
+      "description": "Extension Chicote Sistema de Debate",
+      "row": 38931,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CL CAB 01",
+      "description": "Extension monofasica 10A - 10 mts",
+      "row": 39028,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CL CAB 02",
+      "description": "Extension monofasica 10A - 20 mts",
+      "row": 39029,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CL MIC 07",
+      "description": "Capsula Cintillo Shure Color piel",
+      "row": 39210,
+      "previous_reason": "Capsula: confirmar microfono funcional o componente",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CL MONT 01",
+      "description": "Tablero Electrico 32A con toma 16A",
+      "row": 39253,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Distribución eléctrica",
+      "category": "Energía",
+      "status": "familia propuesta",
+      "reason": "Descripcion de distribucion electrica respaldada por grupo electrico/cableado",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CL MONT 02",
+      "description": "Tablero Electrico 100A",
+      "row": 39268,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Distribución eléctrica",
+      "category": "Energía",
+      "status": "familia propuesta",
+      "reason": "Descripcion de distribucion electrica respaldada por grupo electrico/cableado",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO ACC08",
+      "description": "Cargador de baterias para microfonos",
+      "row": 39524,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": "Accesorios de audio",
+      "category": "Audio",
+      "status": "familia propuesta",
+      "reason": "Descripcion de accesorio y contexto de microfonia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB06",
+      "description": "Extension energia 20 mts",
+      "row": 40650,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB07",
+      "description": "Extension energia 5 mts",
+      "row": 40654,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB11",
+      "description": "Extension energia hasta 2 mts",
+      "row": 40714,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB125",
+      "description": "Extension Electrica de 40 metroscon centelsa certificado",
+      "row": 40738,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB39",
+      "description": "Extension energia 10 mts",
+      "row": 40861,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB40",
+      "description": "Extension energia 30 mts",
+      "row": 40875,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB54",
+      "description": "Snake Electrico",
+      "row": 40921,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB65",
+      "description": "Pulpo 110V",
+      "row": 40967,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB68",
+      "description": "Pulpo 220V",
+      "row": 40982,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": null,
+      "category": "Energía",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CAB89",
+      "description": "Extension energia 15 mts",
+      "row": 41044,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO CVT21",
+      "description": "Convertidor USB C (F) -TIPO A (M)",
+      "row": 41455,
+      "previous_reason": "Equipo activo o funcion distinta: requiere validacion tecnica",
+      "family": null,
+      "category": "Informática y redes",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE DATOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO MIC25",
+      "description": "Sistema de micrófono inalámbrico",
+      "row": 43864,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "CO MISC27",
+      "description": "Set Microfonos segun Rider",
+      "row": 44055,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "COD FALTANTE",
+      "description": "Sistema Doble adicional para proyeccion (cusco)",
+      "row": 46192,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "VIDEO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROJECTOR"
+        }
+      ]
+    },
+    {
+      "code": "EXTSIDEA",
+      "description": "Extension Sistema de Debate 1,5 Mts.",
+      "row": 46791,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "EXTUTPHH",
+      "description": "Extension UTP H - H 20 Mts.",
+      "row": 46795,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE RED"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "MICFICTEC",
+      "description": "Microfonia Ficha Tecnica",
+      "row": 47583,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICRÓFONOS ALÁMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "MX PRY01",
+      "description": "Videoproyector 4.500 Lm",
+      "row": 48156,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Proyectores",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Equipo principal identificado y contexto Video; un lente incluido no lo convierte en accesorio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "MX PRY02",
+      "description": "Videoproyector 7.000 Lm | Laser",
+      "row": 48158,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Proyectores",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Equipo principal identificado y contexto Video; un lente incluido no lo convierte en accesorio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "MX PRY03",
+      "description": "Videoproyector 12.000 Lm | Laser",
+      "row": 48160,
+      "previous_reason": "Descripcion insuficiente para confirmar proyector",
+      "family": "Proyectores",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Equipo principal identificado y contexto Video; un lente incluido no lo convierte en accesorio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB02",
+      "description": "Extension electrica hasta 3 mts",
+      "row": 48442,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB03",
+      "description": "Extension electrica hasta 5 mts",
+      "row": 48446,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB04",
+      "description": "Extension electrica hasta 10 mts",
+      "row": 48449,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB05",
+      "description": "Extension electrica hasta 15 mts",
+      "row": 48453,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB06",
+      "description": "Extension electrica hasta 20 mts",
+      "row": 48457,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB07",
+      "description": "Extension electrica hasta 25 mts",
+      "row": 48458,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PA CAB08",
+      "description": "Extension electrica hasta 30 mts",
+      "row": 48460,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Energía"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "ELECTRICIDAD"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE ENERGÍA"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE ACC27",
+      "description": "Cargador de Bateria SLXD4",
+      "row": 49104,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": "Accesorios de audio",
+      "category": "Audio",
+      "status": "familia propuesta",
+      "reason": "Descripcion de accesorio y contexto de microfonia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE AUD28",
+      "description": "Caja Remota para X32 de 16 entradas",
+      "row": 49459,
+      "previous_reason": "Equipo activo o funcion distinta: requiere validacion tecnica",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MULTIPAR DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "CABLES DE AUDIO"
+        }
+      ]
+    },
+    {
+      "code": "PE CAB34",
+      "description": "Extension USB 5 mtrs.",
+      "row": 49721,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE DATOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE CAB38",
+      "description": "Extension USB 3.00 10mt",
+      "row": 49725,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE DATOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE CAB39",
+      "description": "Extension USB 1.8mt.",
+      "row": 49726,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE DATOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE CAB45",
+      "description": "Extension USB 3mts.",
+      "row": 49732,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Informática y redes"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "INFORMATICA"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE DATOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE MIC20",
+      "description": "Micrófono de debate (Presidente)",
+      "row": 51085,
+      "previous_reason": "Funcion de debate/interpretacion puede determinar otra familia",
+      "family": "Debate y votación",
+      "category": "Interpretación y comunicaciones",
+      "status": "familia propuesta",
+      "reason": "Funcion debate explicita; conectividad y departamento se conservan como atributos/contexto",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICRÓFONOS ALÁMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE MIC21",
+      "description": "Micrófono de debate (delegado)",
+      "row": 51089,
+      "previous_reason": "Funcion de debate/interpretacion puede determinar otra familia",
+      "family": "Debate y votación",
+      "category": "Interpretación y comunicaciones",
+      "status": "familia propuesta",
+      "reason": "Funcion debate explicita; conectividad y departamento se conservan como atributos/contexto",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICRÓFONOS ALÁMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE MIC23",
+      "description": "Bateria de Microfonia QLX",
+      "row": 51100,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PE MIC27",
+      "description": "Kit de Bateria de 6 Microfonos",
+      "row": 51108,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICRÓFONOS ALÁMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PROHALL1",
+      "description": "Salones Independientes 1/3 Crespon/Salon Quebracho",
+      "row": 52293,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PROHALL2",
+      "description": "Salones Unidos 2/3 (Quebracho/Madroño)/(Crespon/Madroño)",
+      "row": 52294,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PROHALL3",
+      "description": "Salones Unidos 3/3 (Crespon/Quebracho/Madroño)",
+      "row": 52295,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PROHALL4",
+      "description": "Salones Independientes Quebracho Especial",
+      "row": 52296,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "PROYECTORES"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "PROY10000",
+      "description": "Proyector Laser 10.000 Ani Lumens (Inlcuye Lente Gran Angular)",
+      "row": 52316,
+      "previous_reason": "Accesorio o equipo con accesorio: revisar alcance",
+      "family": "Proyectores",
+      "category": "Video",
+      "status": "familia propuesta",
+      "reason": "Equipo principal identificado y contexto Video; un lente incluido no lo convierte en accesorio",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO Y VIDEO FIJOS"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "XX11501",
+      "description": "Sistema de Proyección Sala Independencia Norte o Sur",
+      "row": 55348,
+      "previous_reason": "Sistema/paquete de proyeccion: revisar composicion",
+      "family": null,
+      "category": "Video",
+      "status": "solo categoria",
+      "reason": "Conservar revision por paquete, tipo, cuarentena o advertencia operacional",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "VIDEO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "3010"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "PROYECTORES"
+        }
+      ]
+    },
+    {
+      "code": "XXX11470",
+      "description": "Parante de micrófono de mesa",
+      "row": 55782,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": "Accesorios de audio",
+      "category": "Audio",
+      "status": "familia propuesta",
+      "reason": "Descripcion de accesorio y contexto de microfonia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "XXX270",
+      "description": "PE Microfono Inalambrico Volante/Mano QLX",
+      "row": 56553,
+      "previous_reason": "Descripcion insuficiente para confirmar microfono",
+      "family": null,
+      "category": "Audio",
+      "status": "solo categoria",
+      "reason": "Solo contexto general; falta evidencia para elegir familia",
+      "alerts": [],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": null
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MICRÓFONOS"
+        }
+      ]
+    },
+    {
+      "code": "XXX272",
+      "description": "Chicote XLR-3 M-H",
+      "row": 56571,
+      "previous_reason": "Descripcion insuficiente para confirmar cable o adaptador",
+      "family": "Cables y adaptadores",
+      "category": "Conectividad",
+      "status": "familia propuesta",
+      "reason": "Descripcion de conexion y grupo/department de cables",
+      "alerts": [
+        "RevenueGroup sin equivalencia especifica: se conserva como contexto",
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "ACC"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "CABLES DE AUDIO"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": null
+        }
+      ]
+    },
+    {
+      "code": "XXX317",
+      "description": "Microfono de Debate",
+      "row": 56744,
+      "previous_reason": "Funcion de debate/interpretacion puede determinar otra familia",
+      "family": "Debate y votación",
+      "category": "Interpretación y comunicaciones",
+      "status": "familia propuesta",
+      "reason": "Funcion debate explicita; conectividad y departamento se conservan como atributos/contexto",
+      "alerts": [
+        "Categoria propuesta por funcion difiere del contexto: Audio"
+      ],
+      "evidence": [
+        {
+          "field": "DEPARTMENT",
+          "value": "AUDIO"
+        },
+        {
+          "field": "REVENUEGROUP",
+          "value": "AUDIO"
+        },
+        {
+          "field": "EXCHANGEGROUP",
+          "value": "MICROFONOS INALAMBRICOS"
+        },
+        {
+          "field": "INVENTORYGROUP",
+          "value": null
+        },
+        {
+          "field": "Report Group",
+          "value": "MIC DEBATE"
+        }
+      ]
+    }
+  ]
+}

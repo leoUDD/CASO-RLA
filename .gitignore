@@ -1,0 +1,15 @@
+.vendor/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+
+outputs/eda_runtime/
+
+# Bases de datos locales
+*.sqlite3
+data/backups/
+
+# Outputs pesados generados
+outputs/comparacion/comparacion.json
