@@ -13,3 +13,6 @@ data/backups/
 
 # Outputs pesados generados
 outputs/comparacion/comparacion.json
+
+# Exportaciones generadas por la aplicación
+data/exports/
