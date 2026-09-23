@@ -130,7 +130,8 @@ class OperationTests(unittest.TestCase):
                 req=Request(url+'/api/import',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json','X-Catalog-Token':'test-token'},method='POST')
                 with urlopen(req) as response:return json.load(response)
             first=upload(); again=upload()
-            self.assertEqual(first['load_id'],again['load_id']);self.assertTrue(again['repeated'])
+            self.assertEqual(first['import']['load_id'],again['import']['load_id']);self.assertTrue(again['import']['repeated'])
+            self.assertEqual(again['standardization']['new_codes'],0)
             self.assertEqual(self.db.execute('SELECT count(*) FROM active_loads').fetchone()[0],0)
         finally: server.shutdown();server.server_close();worker.join()
 
