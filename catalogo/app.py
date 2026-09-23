@@ -44,6 +44,16 @@ def who(data, reason):
     return dict(data, actor=op.clean(data.get('actor')) or DEFAULT_ACTOR, reason=op.clean(data.get('reason')) or reason)
 
 
+def stock_countries(db):
+    """Países (y 'Sin país') que tienen stock disponible en algún producto, con el número de productos."""
+    names = dict(db.execute('SELECT country_code,name FROM countries'))
+    counts = Counter()
+    for (value,) in db.execute('SELECT stock_by_country FROM product_standards WHERE stock_by_country IS NOT NULL'):
+        counts.update(json.loads(value).keys())
+    return [{'code': c, 'name': names.get(c, c), 'products': n}
+            for c, n in sorted(counts.items(), key=lambda kv: (kv[0] == 'Sin país', names.get(kv[0], kv[0])))]
+
+
 def latest_load(db):
     row = db.execute('SELECT max(load_id) FROM loads').fetchone()
     return row[0] if row else None
@@ -54,6 +64,7 @@ def state(db, load_id, dbpath):
     base = {'loads': loads, 'load_id': load_id, 'std': std.latest_summary(db), 'sites': std.sites(db),
             'export': export_info(export_path(dbpath)),
             'countries': [dict(r) for r in db.execute('SELECT country_code,name FROM countries ORDER BY name')],
+            'stock_countries': stock_countries(db),
             'site_types': R.SITE_TYPES,
             'categories': [dict(r) for r in db.execute('SELECT category_id,name FROM categories ORDER BY name')],
             'families': [dict(r) for r in db.execute('SELECT f.*,c.name category FROM families f JOIN categories c USING(category_id) ORDER BY c.name,f.name')],
