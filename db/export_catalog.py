@@ -115,6 +115,19 @@ def export(db, out_path):
     return {'path': str(out_path), 'tables': counts, 'load_id': load}
 
 
+def info(path):
+    """Metadatos y conteos de una exportación existente, o None si todavía no hay."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    with closing(sqlite3.connect(f'file:{path}?mode=ro', uri=True)) as out:
+        meta = dict(out.execute('SELECT clave,valor FROM metadatos'))
+        tables = {t: out.execute(f'SELECT count(*) FROM {t}').fetchone()[0]
+                  for t in ('productos', 'codigos_origen', 'marcas', 'familias', 'sitios', 'inventario')}
+    return {'path': str(path), 'size_kb': path.stat().st_size // 1024, 'exported_at': meta.get('exportado_en'),
+            'load_id': meta.get('carga_id'), 'file': meta.get('archivo'), 'tables': tables}
+
+
 def _num(value):
     try:
         return float(value) if value not in (None, '') else None

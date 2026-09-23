@@ -5,7 +5,7 @@ países**, con codificación, nomenclatura y categorización estandarizadas, bú
 duplicados y exportación a SQLite. Es repetible: cada mes se carga el archivo nuevo y el proceso se ejecuta igual.
 
 ```
-Excel nuevo → tratamiento → estandarización → revisión → catálogo en SQLite → búsqueda / altas / exportación
+Cargar Excel (manual) → tratamiento → estandarización → exportación a SQLite (automáticos) → buscar / crear producto (manual)
 ```
 
 ## Cómo ejecutarlo
@@ -17,23 +17,26 @@ python -m pip install -r requirements.txt
 python -m db.catalog_app
 ```
 
-Abrir **http://127.0.0.1:8766/**, escribir el nombre del responsable y, en **1. Cargar**, subir
-`Lista_Productos.xlsx` (hoja *Lista de productos*). Si la base `data/rla_modelo_v4.sqlite3` no existe, se crea
-vacía. Con el archivo real, el proceso completo tarda unos 30 segundos.
+Abrir **http://127.0.0.1:8766/** y, en **1. Cargar Excel**, elegir `Lista_Productos.xlsx` (hoja *Lista de
+productos*). No se piden más datos: tratamiento, estandarización y exportación ocurren solos, en unos 35 segundos
+con el archivo real. Si la base `data/rla_modelo_v4.sqlite3` no existe, se crea vacía. La base exportada queda en
+`data/exports/catalogo_estandarizado.sqlite3` y se puede descargar desde la pestaña **4. Base SQLite**.
 
 Pruebas: `python -m unittest discover -s db -p "test_*.py"`.
 
 ## Qué hace cada paso
 
-| Paso | Automático | Requiere una persona |
+| Paso | Tipo | Qué ocurre |
 |---|---|---|
-| **1. Cargar** | Huella SHA-256, se conserva cada fila original. Un archivo idéntico no se reimporta. | — |
-| **2. Tratamiento** | Espacios, números en formato `5.000,00` con `Decimal`, dominios y banderas. Las filas con error quedan en cuarentena con su motivo. | Excluir los registros de sistema (DEFAULTITEM…) |
-| **3. Estandarización** | Nombres, unidades, marcas, país y tipo de sitio, familia, código estándar y duplicados | Asignar país a los sitios que no se pueden deducir |
-| **4. Revisión** | Las reglas proponen una familia | Confirmar conflictos y productos sin regla |
-| **5. Buscar** | Búsqueda sin tildes, mayúsculas ni orden de palabras, más filtros y detalle por sitio | — |
-| **6. Nuevo producto** | Nombre estandarizado, familia sugerida, aviso de duplicado exacto y de productos parecidos | Crear el producto o reutilizar el existente |
-| **7. Exportar** | Base SQLite independiente, lista para BI o R2 | — |
+| **1. Cargar Excel** | manual | Se elige el archivo. Se guarda su huella SHA-256 y cada fila original; un archivo idéntico no se reimporta. |
+| **2. Tratamiento** | automático | Espacios, números en formato `5.000,00` con `Decimal`, dominios y banderas. Las filas con error quedan en cuarentena con su motivo. |
+| **3. Estandarización** | automático | Nombres, unidades, marcas, país y tipo de sitio, familia, código estándar y duplicados. |
+| **4. Base SQLite** | automático | La base exportada se regenera tras cada carga, alta de producto o cambio de administración. |
+| **5. Buscar** | manual | Ignora tildes, mayúsculas y orden de palabras; filtros por categoría, familia, país y estado; detalle con stock por sitio y códigos de cada país. |
+| **6. Nuevo producto** | manual | Mientras se escribe se muestran el nombre estandarizado, la familia sugerida y los productos iguales o parecidos. Al crearlo recibe su código. |
+| **Administración** | opcional | Asignar país a sitios sin evidencia, revisar clasificaciones dudosas, excluir registros de sistema, publicar el inventario, volver a ejecutar las reglas. Aquí el responsable es obligatorio. |
+
+En el flujo, el responsable es opcional: si se deja vacío, la auditoría registra "Usuario RLA".
 
 ### Reglas de estandarización (`db/std_rules.py`)
 
@@ -79,5 +82,5 @@ reglas y se conservan al volver a estandarizar. Todo queda en `audit_events`.
 
 - La aplicación es local y para un solo usuario: el responsable se declara, no se autentica.
 - El Excel no trae moneda: no se suman costos entre países.
-- 41 sitios no tienen evidencia de país y se asignan en la pestaña 3.
+- 41 sitios no tienen evidencia de país; se asignan en Administración → Sitios sin país.
 - Alrededor del 15 % de los productos queda para revisión humana: sin regla, en conflicto o marcados "no usar".

@@ -33,6 +33,9 @@ class OperationTests(unittest.TestCase):
         build(self.db,1); self.db.row_factory=op.sqlite3.Row; op.setup(self.db)
         self.who={'actor':'test','reason':'Prueba transaccional'}
     def tearDown(self): self.db.close(); self.tmp.cleanup()
+    def xlsx(self,rows):
+        content=io.BytesIO(); pd.DataFrame(rows).to_excel(content,sheet_name='Lista de productos',index=False)
+        return content.getvalue()
     def publish(self,load=1,date='2026-09-22T18:00:00-03:00'):
         return op.publish(self.db,dict(self.who,load_id=load,token=op.preview(self.db,load)['token'],snapshot_at=date,full_snapshot=True))
     def stage(self,rows,source='RLA_Productos',letter='b'):
@@ -132,6 +135,15 @@ class OperationTests(unittest.TestCase):
             first=upload(); again=upload()
             self.assertEqual(first['import']['load_id'],again['import']['load_id']);self.assertTrue(again['import']['repeated'])
             self.assertEqual(again['standardization']['new_codes'],0)
+            # Flujo automático: carga sin responsable ni motivo → tratamiento, estandarización y exportación
+            payload=dict(filename='otro.xlsx',content=base64.b64encode(self.xlsx([record('OTRO')])).decode())
+            result=upload()
+            self.assertFalse(result['import']['repeated'])
+            self.assertGreaterEqual(result['export']['tables']['productos'],1)
+            with urlopen(url+'/api/download') as response:
+                self.assertTrue(response.read(16).startswith(b'SQLite format 3'))
+            with urlopen(url+'/api/state') as response:
+                self.assertEqual(json.load(response)['export']['load_id'],str(result['import']['load_id']))
             self.assertEqual(self.db.execute('SELECT count(*) FROM active_loads').fetchone()[0],0)
         finally: server.shutdown();server.server_close();worker.join()
 
