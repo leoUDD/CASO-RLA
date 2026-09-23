@@ -461,8 +461,9 @@ def detail(db, master_id):
             if r.get('SITEID'):
                 site = db.execute('''SELECT s.name,c.country_code,s.site_type FROM sites s LEFT JOIN countries c USING(country_id)
                                      WHERE s.source_site_code=?''', (r['SITEID'],)).fetchone()
+                kind = site[2] if site else None
                 stock.append({'code': r['Product ID'], 'site': site[0] if site else r['SITEID'], 'country': site[1] if site else None,
-                              'site_type': site[2] if site else None, 'stock': _number(r.get('Stock'))})
+                              'site_type': kind, 'available': kind in R.AVAILABLE_SITE_TYPES, 'stock': _number(r.get('Stock'))})
     manual_stock = [dict(zip(['site', 'stock'], r)) for r in db.execute(
         'SELECT s.name,e.stock FROM manual_site_entries e JOIN sites s USING(site_id) WHERE e.master_id=?', (int(master_id),))]
     group = product['duplicate_group']
@@ -473,8 +474,19 @@ def detail(db, master_id):
     links = [dict(zip(['link_id', 'retired_code', 'codes', 'actor', 'reason', 'at'], (r[0], r[1], json.loads(r[2]), *r[3:]))) for r in db.execute(
         '''SELECT link_id,retired_code,legacy_codes_json,actor,reason,linked_at FROM standard_code_links
            WHERE target_master_id=? AND undone_at IS NULL ORDER BY link_id''', (int(master_id),))]
-    return {'product': product, 'originals': originals, 'stock': sorted(stock, key=lambda s: -s['stock']),
-            'manual_stock': manual_stock, 'duplicates': similar, 'history': history, 'links': links}
+    # Misma regla que stock_by_country: solo stock positivo; disponible = bodegas y sedes de operación.
+    summary = defaultdict(lambda: {'available': 0.0, 'unavailable': Counter()})
+    for row in stock:
+        if row['stock'] > 0:
+            entry = summary[row['country'] or 'Sin país']
+            if row['available']:
+                entry['available'] += row['stock']
+            else:
+                entry['unavailable'][row['site_type'] or 'Sin tipo'] += row['stock']
+    stock_summary = [{'country': c, 'available': v['available'], 'unavailable': dict(v['unavailable'])}
+                     for c, v in sorted(summary.items(), key=lambda kv: (kv[0] == 'Sin país', kv[0]))]
+    return {'product': product, 'originals': originals, 'stock': sorted(stock, key=lambda s: (not s['available'], -s['stock'])),
+            'stock_summary': stock_summary, 'manual_stock': manual_stock, 'duplicates': similar, 'history': history, 'links': links}
 
 
 # ---------------------------------------------------------------- vincular equivalentes

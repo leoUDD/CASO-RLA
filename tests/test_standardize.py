@@ -144,6 +144,17 @@ class StandardizeDatabaseTests(unittest.TestCase):
         std.apply(self.db, self.load)  # la decisión humana prevalece sobre la regla
         self.assertEqual(self.product('11136')['method'], 'Revisor')
 
+    def test_detail_explains_available_stock(self):
+        product = self.product('11135')  # 5 en "Botar Chile" (descarte, CL) y 7 en "H. W" (sede, sin país)
+        detail = std.detail(self.db, product['master_id'])
+        self.assertEqual(detail['stock_summary'], [
+            {'country': 'CL', 'available': 0.0, 'unavailable': {'Descarte / baja': 5.0}},
+            {'country': 'Sin país', 'available': 7.0, 'unavailable': {}}])
+        # El disponible del resumen coincide con stock_by_country (misma regla)
+        self.assertEqual({r['country']: r['available'] for r in detail['stock_summary'] if r['available']},
+                         json.loads(product['stock_by_country']))
+        self.assertEqual([r['available'] for r in detail['stock']], [True, False])  # disponibles primero
+
     def test_link_equivalents_keeps_inventory_by_country(self):
         cl, co = self.product('11133'), self.product('CO PRY01')
         with self.assertRaises(ValueError):
