@@ -1,4 +1,4 @@
-# Aplicación de catálogo (python -m db.catalog_app)
+# Aplicación de catálogo (python -m catalogo)
 pandas>=2.0
 openpyxl>=3.1
 # Lector de Excel ~4 veces más rápido (opcional: si falta se usa openpyxl)

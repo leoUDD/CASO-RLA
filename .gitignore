@@ -1,18 +1,18 @@
-.vendor/
-venv/
+# Entornos y caché de Python
 .venv/
+venv/
+.vendor/
 __pycache__/
 *.pyc
 .env
 
-outputs/eda_runtime/
-
-# Bases de datos locales
+# Datos locales: bases, respaldos y exportaciones generadas por la aplicación
+data/
 *.sqlite3
-data/backups/
 
-# Outputs pesados generados
-outputs/comparacion/comparacion.json
+# Resultados que genera el notebook de análisis al ejecutarse
+analisis/RLA_estandarizacion/
+.ipynb_checkpoints/
 
-# Exportaciones generadas por la aplicación
-data/exports/
+# Análisis locales anteriores (no forman parte del repositorio)
+outputs/
