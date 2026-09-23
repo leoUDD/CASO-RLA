@@ -194,6 +194,20 @@ class StandardizeDatabaseTests(unittest.TestCase):
         self.assertEqual(schema['v_catalogo']['type'], 'vista')
         self.assertEqual(schema['productos']['rows'], result['tables']['productos'])
 
+    def test_locked_export_does_not_break_the_operation(self):
+        from unittest import mock
+        from catalogo.app import refresh_export, export_path
+        target = export_path(self.path)
+        self.assertTrue(refresh_export(self.db, self.path)['tables']['productos'] > 0)
+        # Windows no deja reemplazar un archivo abierto en otro programa (consola sqlite3, DB Browser, OneDrive)
+        with mock.patch('catalogo.export_catalog.time.sleep'),              mock.patch.object(Path, 'replace', side_effect=PermissionError('[WinError 5] Acceso denegado')):
+            created = std.create(self.db, dict(self.who, name='Producto durante bloqueo', product_type='ITEM', request_id='lock'))
+            result = refresh_export(self.db, self.path)
+        self.assertIn('abierto en otro programa', result['error'])
+        self.assertFalse(target.with_suffix('.tmp').exists())          # no deja archivos temporales
+        self.assertTrue(created['master_id'])                          # la operación del usuario sí se hizo
+        self.assertIn('productos', refresh_export(self.db, self.path)['tables'])  # al liberarse, se actualiza
+
     def test_country_filter_only_lists_countries_with_stock(self):
         from catalogo.app import stock_countries
         codes = [c['code'] for c in stock_countries(self.db)]

@@ -20,7 +20,7 @@ from catalogo import operations as op
 from catalogo.build_catalog import build
 from catalogo import standardize as std
 from catalogo import std_rules as R
-from catalogo.export_catalog import export, info as export_info
+from catalogo.export_catalog import ExportLocked, export, info as export_info
 from catalogo.import_excel import import_excel, connect as create_database
 
 LOCK = threading.Lock()  # una escritura a la vez; SQLite además serializa con BEGIN IMMEDIATE
@@ -33,10 +33,17 @@ def export_path(dbpath):
 
 
 def refresh_export(db, dbpath):
-    """Paso automático: deja la base SQLite exportada al día con el catálogo operativo."""
+    """Paso automático: deja la base SQLite exportada al día con el catálogo operativo.
+
+    Si el archivo exportado está abierto en otro programa, la operación del usuario no falla:
+    se informa `{'error': ...}` y la exportación se completa en el próximo cambio.
+    """
     if not db.execute('SELECT 1 FROM product_standards LIMIT 1').fetchone():
         return None
-    return export(db, export_path(dbpath))
+    try:
+        return export(db, export_path(dbpath))
+    except ExportLocked as exc:
+        return {'error': str(exc)}
 
 
 def who(data, reason):
