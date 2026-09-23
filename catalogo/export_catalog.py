@@ -130,8 +130,23 @@ def export(db, out_path):
     return {'path': str(out_path), 'tables': counts, 'load_id': load}
 
 
+DESCRIPTIONS = {
+    'productos': 'Catálogo estandarizado: un registro por producto',
+    'stock_disponible_por_pais': 'Stock disponible por producto y país (nunca sumado entre países)',
+    'codigos_origen': 'Equivalencias: código de cada país en R2 → producto',
+    'codigos_estandar_retirados': 'Códigos estándar retirados al vincular productos',
+    'categorias': 'Categorías de la taxonomía', 'familias': 'Familias de cada categoría',
+    'marcas': 'Marcas unificadas', 'marca_alias': 'Escrituras originales de cada marca',
+    'paises': 'Países', 'sitios': 'Sitios con país, tipo y si su stock cuenta como disponible',
+    'inventario': 'Stock y costos por código × sitio de la última carga',
+    'metadatos': 'Fecha de exportación, carga, archivo y versión de reglas',
+    'v_catalogo': 'Vista: catálogo listo para consultar (con marca, categoría y códigos de origen)',
+    'v_stock_por_pais': 'Vista: stock por producto, país y tipo de sitio',
+}
+
+
 def info(path):
-    """Metadatos y conteos de una exportación existente, o None si todavía no hay."""
+    """Metadatos, conteos y estructura (tablas y columnas) de una exportación existente, o None si no hay."""
     path = Path(path)
     if not path.is_file():
         return None
@@ -139,8 +154,15 @@ def info(path):
         meta = dict(out.execute('SELECT clave,valor FROM metadatos'))
         tables = {t: out.execute(f'SELECT count(*) FROM {t}').fetchone()[0]
                   for t in ('productos', 'codigos_origen', 'marcas', 'familias', 'sitios', 'inventario')}
+        schema = []
+        for name, kind in out.execute("SELECT name,type FROM sqlite_master WHERE type IN ('table','view') "
+                                      "AND name NOT LIKE 'sqlite_%' ORDER BY type='view', rowid"):
+            schema.append({'name': name, 'type': 'vista' if kind == 'view' else 'tabla',
+                           'rows': out.execute(f'SELECT count(*) FROM "{name}"').fetchone()[0],
+                           'columns': [c[1] for c in out.execute(f'PRAGMA table_info("{name}")')],
+                           'description': DESCRIPTIONS.get(name, '')})
     return {'path': str(path), 'size_kb': path.stat().st_size // 1024, 'exported_at': meta.get('exportado_en'),
-            'load_id': meta.get('carga_id'), 'file': meta.get('archivo'), 'tables': tables}
+            'load_id': meta.get('carga_id'), 'file': meta.get('archivo'), 'tables': tables, 'schema': schema}
 
 
 def _num(value):

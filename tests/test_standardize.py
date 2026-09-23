@@ -177,17 +177,28 @@ class StandardizeDatabaseTests(unittest.TestCase):
         self.assertEqual(self.product('11133')['legacy_codes'], '11133')
 
     def test_export(self):
+        from catalogo.export_catalog import info
         out = Path(self.tmp.name) / 'export.sqlite3'
-        info = export(self.db, out)
-        self.assertEqual(info['tables']['productos'], self.db.execute('SELECT count(*) FROM product_standards').fetchone()[0])
+        result = export(self.db, out)
+        self.assertEqual(result['tables']['productos'], self.db.execute('SELECT count(*) FROM product_standards').fetchone()[0])
         with closing(sqlite3.connect(out)) as e:
             self.assertEqual(e.execute("SELECT familia FROM v_catalogo WHERE codigos_origen='10063'").fetchone()[0], 'Micrófonos')
             self.assertEqual(e.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
             self.assertGreater(e.execute('SELECT count(*) FROM inventario').fetchone()[0], 0)
             self.assertEqual(e.execute("SELECT stock_por_pais,tipo_duplicado FROM v_catalogo WHERE codigos_origen='CO PRY01'").fetchone(), ('CO: 2', 'Otro país'))
             self.assertEqual(e.execute("SELECT count(DISTINCT pais) FROM stock_disponible_por_pais").fetchone()[0], 3)
-            self.assertEqual(json.loads(json.dumps(dict(e.execute('SELECT * FROM metadatos'))))['version_reglas'], R.RULES_VERSION)
+            self.assertEqual(dict(e.execute('SELECT * FROM metadatos'))['version_reglas'], R.RULES_VERSION)
+        # La pestaña "Base SQLite" lista cada tabla con sus atributos reales
+        schema = {t['name']: t for t in info(out)['schema']}
+        self.assertIn('codigo_estandar', schema['productos']['columns'])
+        self.assertEqual(schema['v_catalogo']['type'], 'vista')
+        self.assertEqual(schema['productos']['rows'], result['tables']['productos'])
 
+    def test_country_filter_only_lists_countries_with_stock(self):
+        from catalogo.app import stock_countries
+        codes = [c['code'] for c in stock_countries(self.db)]
+        self.assertEqual(codes, ['CL', 'CO', 'Sin país'])  # países sin stock disponible no aparecen; 'Sin país' al final
+        self.assertEqual(std.search(self.db, '', country='Sin país')['total'], 1)
 
 if __name__ == '__main__':
     unittest.main()
