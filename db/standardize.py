@@ -36,6 +36,11 @@ CREATE TABLE IF NOT EXISTS product_standards(
 CREATE INDEX IF NOT EXISTS product_standards_family ON product_standards(family_id);
 CREATE INDEX IF NOT EXISTS product_standards_duplicate ON product_standards(duplicate_group);
 CREATE INDEX IF NOT EXISTS product_standards_dupkey ON product_standards(duplicate_key);
+CREATE TABLE IF NOT EXISTS standard_code_links(
+  link_id INTEGER PRIMARY KEY, source_master_id INTEGER NOT NULL REFERENCES master_products,
+  target_master_id INTEGER NOT NULL REFERENCES master_products, retired_code TEXT, legacy_codes_json TEXT NOT NULL,
+  actor TEXT NOT NULL, reason TEXT NOT NULL, linked_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+  undone_at TEXT);
 CREATE TABLE IF NOT EXISTS standardization_runs(
   run_id INTEGER PRIMARY KEY, load_id INTEGER NOT NULL REFERENCES loads, rules_version TEXT NOT NULL,
   summary_json TEXT NOT NULL CHECK(json_valid(summary_json)),
@@ -53,6 +58,11 @@ def setup(db):
         for column, ddl in [('site_type', 'TEXT'), ('country_source', 'TEXT'), ('type_source', 'TEXT')]:
             if column not in _columns(db, 'sites'):
                 db.execute(f'ALTER TABLE sites ADD COLUMN {column} {ddl}')
+        # presence_countries: países donde existe el producto; stock_by_country: stock disponible por país (JSON);
+        # duplicate_kind: 'Mismo país' (ficha duplicada) u 'Otro país' (equivalente entre países).
+        for column in ('presence_countries', 'stock_by_country', 'duplicate_kind'):
+            if column not in _columns(db, 'product_standards'):
+                db.execute(f'ALTER TABLE product_standards ADD COLUMN {column} TEXT')
         db.executemany('INSERT OR IGNORE INTO countries(country_code,name) VALUES(?,?)', R.COUNTRIES.items())
 
 
@@ -165,11 +175,16 @@ def apply(db, load_id, actor='estandarizador'):
     with db:
         db.execute('BEGIN IMMEDIATE')
         sites = _standardize_sites(db, source_id, rows)
-        masters, legacy_ids, current_family = {}, {}, {}
-        for code, lid, mid, origin, fam in db.execute(
-                '''SELECT l.legacy_code,l.legacy_id,p.master_id,m.origin,m.family_id FROM legacy_products l
+        masters, legacy_ids, current_family, linked = {}, {}, {}, set()
+        for code, lid, mid, origin, fam, how in db.execute(
+                '''SELECT l.legacy_code,l.legacy_id,p.master_id,m.origin,m.family_id,p.method FROM legacy_products l
                    JOIN product_mappings p USING(legacy_id) JOIN master_products m USING(master_id) WHERE l.source_id=?''', (source_id,)):
             masters[code], legacy_ids[code], current_family[mid] = (mid, origin), lid, fam
+            if how == 'reviewed':
+                linked.add(code)
+        retired = defaultdict(list)  # códigos estándar retirados por vinculación → siguen encontrándose al buscar
+        for target, code in db.execute('SELECT target_master_id,retired_code FROM standard_code_links WHERE undone_at IS NULL AND retired_code IS NOT NULL'):
+            retired[target].append(code)
         brand_names = {}
         reviews = {code: (status, fid) for code, status, fid in db.execute(
             '''SELECT l.legacy_code,u.status,u.family_id FROM unified_catalog_reviews u JOIN legacy_products l USING(legacy_id)
@@ -181,7 +196,7 @@ def apply(db, load_id, actor='estandarizador'):
                 by_code[r['Product ID']].append(r)
         # Agrupar por maestro: varios códigos pueden compartir maestro tras una equivalencia aprobada.
         by_master = defaultdict(list)
-        for code in sorted(by_code):
+        for code in sorted(by_code, key=lambda c: (c in linked, c)):
             if code in masters:
                 by_master[masters[code][0]].append(code)
         spelling = Counter()
@@ -193,7 +208,7 @@ def apply(db, load_id, actor='estandarizador'):
             best_spelling.setdefault(bk, text)
         cache, counters = {}, _next_codes(db)
         existing = {mid: code for mid, code in db.execute('SELECT master_id,standard_code FROM product_standards')}
-        results, dup_count = [], Counter()
+        results = []
         for mid, codes in by_master.items():
             first = by_code[codes[0]][0]
             origin = masters[codes[0]][1]
@@ -228,16 +243,23 @@ def apply(db, load_id, actor='estandarizador'):
                 prefix = R.code_prefix(family_name)
                 counters[prefix] += 1
                 code = f'{prefix}-{counters[prefix]:05d}'
-            stock = sum(max(_number(i.get('Stock')), 0) for c in codes for i in by_code[c]
-                        if sites.get(i.get('SITEID'), (None, None))[1] in R.AVAILABLE_SITE_TYPES)
-            with_stock = [i for c in codes for i in by_code[c] if _number(i.get('Stock')) > 0
-                          and sites.get(i.get('SITEID'), (None, None))[1] in R.AVAILABLE_SITE_TYPES]
-            countries = sorted({sites[i['SITEID']][0] or '¿?' for i in with_stock})
+            # El stock nunca se suma entre países: se guarda por país y solo en sitios disponibles.
+            by_country, presence, stocked_sites = Counter(), set(), set()
+            for c in codes:
+                for i in by_code[c]:
+                    country, kind = sites.get(i.get('SITEID'), (None, None))
+                    if country:
+                        presence.add(country)
+                    if kind in R.AVAILABLE_SITE_TYPES and _number(i.get('Stock')) > 0:
+                        by_country[country or 'Sin país'] += _number(i.get('Stock'))
+                        stocked_sites.add(i['SITEID'])
+            countries = sorted(by_country)
             dkey = R.duplicate_key(base, brand_k, model) if base and status == 'Activo' else None
-            dup_count[dkey] += 1
-            search = R.words(' '.join(filter(None, [name, brand, model, code, ' '.join(codes), first.get('Description')])))
+            search = R.words(' '.join(filter(None, [name, brand, model, code, ' '.join(codes), ' '.join(retired.get(mid, [])),
+                                                    first.get('Description')])))
             results.append([mid, code, name, maker, model, fid, method, status, dkey, ', '.join(codes),
-                            ', '.join(countries) or None, stock, len({i['SITEID'] for i in with_stock}), load_id, search])
+                            ', '.join(countries) or None, sum(by_country.values()), len(stocked_sites), load_id, search,
+                            ', '.join(sorted(presence)) or None, json.dumps(dict(sorted(by_country.items())), ensure_ascii=False)])
             if origin == 'import':
                 db.execute('UPDATE master_products SET standard_name=?,manufacturer_id=?,model=?,family_id=? WHERE master_id=?',
                            (name or first.get('Description') or codes[0], maker, model, fid, mid))
@@ -247,15 +269,14 @@ def apply(db, load_id, actor='estandarizador'):
                                (fid, 'approved_by_rule' if method == 'Alta confianza' else 'pending',
                                 f'{R.RULES_VERSION}: {method}', load_id, legacy_ids[codes[0]]))
         new_codes = sum(1 for r in results if r[1] and existing.get(r[0]) is None)
-        for r in results:
-            r.insert(9, _group_id(r[8]) if r[8] and dup_count[r[8]] > 1 else None)
         db.executemany('''INSERT INTO product_standards(master_id,standard_code,standard_name,manufacturer_id,model,family_id,method,
-                operational_status,duplicate_key,duplicate_group,legacy_codes,countries,stock_available,sites_with_stock,load_id,
-                search_text,rules_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                operational_status,duplicate_key,legacy_codes,countries,stock_available,sites_with_stock,load_id,
+                search_text,presence_countries,stock_by_country,rules_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
               ON CONFLICT(master_id) DO UPDATE SET standard_code=COALESCE(product_standards.standard_code,excluded.standard_code),
                 standard_name=excluded.standard_name,manufacturer_id=excluded.manufacturer_id,model=excluded.model,
                 family_id=excluded.family_id,method=excluded.method,operational_status=excluded.operational_status,
-                duplicate_key=excluded.duplicate_key,duplicate_group=excluded.duplicate_group,legacy_codes=excluded.legacy_codes,
+                duplicate_key=excluded.duplicate_key,legacy_codes=excluded.legacy_codes,presence_countries=excluded.presence_countries,
+                stock_by_country=excluded.stock_by_country,
                 countries=excluded.countries,stock_available=excluded.stock_available,sites_with_stock=excluded.sites_with_stock,
                 load_id=excluded.load_id,search_text=excluded.search_text,rules_version=excluded.rules_version,
                 updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now')''', [r + [R.RULES_VERSION] for r in results])
@@ -269,11 +290,27 @@ def apply(db, load_id, actor='estandarizador'):
 
 
 def _refresh_groups(db):
-    """Recalcula grupos de duplicado considerando también altas manuales."""
-    counts = Counter(k for (k,) in db.execute('SELECT duplicate_key FROM product_standards WHERE duplicate_key IS NOT NULL'))
-    db.execute('UPDATE product_standards SET duplicate_group=NULL')
-    db.executemany('UPDATE product_standards SET duplicate_group=? WHERE duplicate_key=?',
-                   [(_group_id(k), k) for k, n in counts.items() if n > 1])
+    """Recalcula grupos de productos iguales (mismo nombre, marca y modelo), incluidas altas manuales.
+
+    'Mismo país': dos fichas del mismo producto conviven en un país → duplicado real a resolver.
+    'Otro país': cada país tiene su propio código del mismo producto → equivalente; se puede vincular
+    bajo un solo código estándar, pero su inventario sigue separado por país.
+    Un producto sin país conocido (p. ej. un alta manual) se trata como posible duplicado de todos.
+    """
+    members = defaultdict(list)
+    for key_, presence in db.execute('SELECT duplicate_key,presence_countries FROM product_standards WHERE duplicate_key IS NOT NULL'):
+        members[key_].append({c.strip() for c in (presence or '').split(',') if c.strip()})
+    db.execute('UPDATE product_standards SET duplicate_group=NULL,duplicate_kind=NULL')
+    updates = []
+    for key_, sets in members.items():
+        if len(sets) < 2:
+            continue
+        seen, same = Counter(), any(not s_ for s_ in sets)
+        for s_ in sets:
+            seen.update(s_)
+        same = same or any(n > 1 for n in seen.values())
+        updates.append((_group_id(key_), 'Mismo país' if same else 'Otro país', key_))
+    db.executemany('UPDATE product_standards SET duplicate_group=?,duplicate_kind=? WHERE duplicate_key=?', updates)
 
 
 def _short(method):
@@ -296,6 +333,8 @@ def _summary(db, load_id, rows, new_codes):
         'with_code': sum(1 for p in products if p[2]), 'new_codes': new_codes,
         'operational': dict(Counter(p[3] for p in products)),
         'duplicate_groups': len({p[4] for p in products if p[4]}),
+        'duplicate_groups_same_country': db.execute("SELECT count(DISTINCT duplicate_group) FROM product_standards WHERE duplicate_kind='Mismo país'").fetchone()[0],
+        'duplicate_groups_cross_country': db.execute("SELECT count(DISTINCT duplicate_group) FROM product_standards WHERE duplicate_kind='Otro país'").fetchone()[0],
         'duplicate_products': sum(1 for p in products if p[4]),
         'brands_raw': len(raw_brands),
         'brands_standard': db.execute('SELECT count(DISTINCT manufacturer_id) FROM product_standards WHERE load_id=?', (load_id,)).fetchone()[0],
@@ -370,16 +409,26 @@ def sites(db):
 
 # ---------------------------------------------------------------- búsqueda
 SEARCH_SQL = '''SELECT p.master_id,p.standard_code,m.master_code,p.standard_name,b.canonical_name,p.model,c.name,f.name,p.method,
-  p.operational_status,p.duplicate_group,p.legacy_codes,p.countries,p.stock_available,m.origin,m.product_type,m.package_type
+  p.operational_status,p.duplicate_group,p.legacy_codes,p.countries,p.stock_available,m.origin,m.product_type,m.package_type,
+  p.duplicate_kind,p.presence_countries,p.stock_by_country
   FROM product_standards p JOIN master_products m USING(master_id)
   LEFT JOIN manufacturers b ON b.manufacturer_id=p.manufacturer_id
   LEFT JOIN families f ON f.family_id=p.family_id LEFT JOIN categories c ON c.category_id=f.category_id'''
 SEARCH_FIELDS = ['master_id', 'standard_code', 'master_code', 'standard_name', 'brand', 'model', 'category', 'family', 'method',
                  'operational_status', 'duplicate_group', 'legacy_codes', 'countries', 'stock_available', 'origin', 'product_type',
-                 'package_type']
+                 'package_type', 'duplicate_kind', 'presence_countries', 'stock_by_country']
+
+
+def _product(row):
+    item = dict(zip(SEARCH_FIELDS, row))
+    item['stock_by_country'] = json.loads(item['stock_by_country'] or '{}')
+    item.pop('stock_available')  # total interno solo para ordenar: no se muestra una suma entre países
+    return item
 FILTERS = {
     'classified': 'p.family_id IS NOT NULL', 'review': "(p.method LIKE 'Revisar%' OR p.operational_status<>'Activo')",
-    'duplicates': 'p.duplicate_group IS NOT NULL', 'with_stock': 'p.stock_available>0', 'manual': "m.origin='manual'",
+    'duplicates': 'p.duplicate_group IS NOT NULL', 'dup_same': "p.duplicate_kind='Mismo país'",
+    'dup_cross': "p.duplicate_kind='Otro país'", 'linked': "p.legacy_codes LIKE '%,%'",
+    'with_stock': 'p.stock_available>0', 'manual': "m.origin='manual'",
 }
 
 
@@ -401,14 +450,14 @@ def search(db, q='', family_id=None, category_id=None, country=None, status=None
                        'LEFT JOIN families f ON f.family_id=p.family_id' + clause, args).fetchone()[0]
     rows = db.execute(SEARCH_SQL + clause + ' ORDER BY p.standard_code IS NULL, p.stock_available DESC, p.standard_name LIMIT ? OFFSET ?',
                       args + [min(int(limit), 200), int(offset)]).fetchall()
-    return {'total': total, 'rows': [dict(zip(SEARCH_FIELDS, r)) for r in rows]}
+    return {'total': total, 'rows': [_product(r) for r in rows]}
 
 
 def detail(db, master_id):
     row = db.execute(SEARCH_SQL + ' WHERE p.master_id=?', (int(master_id),)).fetchone()
     if not row:
         raise ValueError('Producto inexistente')
-    product = dict(zip(SEARCH_FIELDS, row))
+    product = _product(row)
     codes = [c.strip() for c in (product['legacy_codes'] or '').split(',') if c.strip()]
     load = db.execute('SELECT load_id FROM product_standards WHERE master_id=?', (int(master_id),)).fetchone()[0]
     stock, originals = [], {}
@@ -431,13 +480,84 @@ def detail(db, master_id):
     history = [dict(zip(['at', 'action', 'actor', 'reason'], r)) for r in db.execute(
         '''SELECT occurred_at,action,actor,reason FROM audit_events WHERE entity_type='master_product' AND entity_id=?
            ORDER BY event_id DESC LIMIT 10''', (str(master_id),))]
+    links = [dict(zip(['link_id', 'retired_code', 'codes', 'actor', 'reason', 'at'], (r[0], r[1], json.loads(r[2]), *r[3:]))) for r in db.execute(
+        '''SELECT link_id,retired_code,legacy_codes_json,actor,reason,linked_at FROM standard_code_links
+           WHERE target_master_id=? AND undone_at IS NULL ORDER BY link_id''', (int(master_id),))]
     return {'product': product, 'originals': originals, 'stock': sorted(stock, key=lambda s: -s['stock']),
-            'manual_stock': manual_stock, 'duplicates': similar, 'history': history}
+            'manual_stock': manual_stock, 'duplicates': similar, 'history': history, 'links': links}
+
+
+# ---------------------------------------------------------------- vincular equivalentes
+def link(db, data):
+    """Vincula el producto `source_id` al producto `target_id`: pasan a compartir código estándar.
+
+    Los códigos de origen del producto vinculado quedan como equivalencias del destino; el inventario no se
+    toca (sigue por código × sitio, con su país) y el código estándar retirado sigue encontrándose al buscar.
+    Es reversible con unlink(). Requiere responsable y motivo.
+    """
+    from db.operations import credentials
+    actor, reason = credentials(data)
+    target, source = int(data['target_id']), int(data['source_id'])
+    if target == source:
+        raise ValueError('Elija dos productos distintos')
+    rows = {r[0]: r[1:] for r in db.execute('''SELECT m.master_id,m.origin,m.status,p.standard_code FROM master_products m
+                                               JOIN product_standards p USING(master_id) WHERE m.master_id IN (?,?)''', (target, source))}
+    if len(rows) != 2:
+        raise ValueError('Producto inexistente')
+    if rows[source][0] == 'manual':
+        raise ValueError('Un alta manual solo puede ser el destino: abra el producto importado y vincule el alta manual a él')
+    if 'inactive' in (rows[target][1], rows[source][1]):
+        raise ValueError('Uno de los productos ya fue vinculado a otro')
+    codes = [c for (c,) in db.execute('''SELECT l.legacy_code FROM product_mappings p JOIN legacy_products l USING(legacy_id)
+                                          WHERE p.master_id=?''', (source,))]
+    with db:
+        db.execute('BEGIN IMMEDIATE')
+        db.execute('''UPDATE product_mappings SET master_id=?,method='reviewed',reason=?,decided_by=?,
+                      decided_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE master_id=?''', (target, reason, actor, source))
+        if db.execute("SELECT 1 FROM sqlite_master WHERE name='unified_catalog_reviews'").fetchone():
+            db.execute('UPDATE unified_catalog_reviews SET master_id=? WHERE master_id=?', (target, source))
+        db.execute("UPDATE master_products SET status='inactive' WHERE master_id=?", (source,))
+        db.execute('DELETE FROM product_standards WHERE master_id=?', (source,))
+        link_id = db.execute('''INSERT INTO standard_code_links(source_master_id,target_master_id,retired_code,legacy_codes_json,actor,reason)
+                                VALUES(?,?,?,?,?,?)''', (source, target, rows[source][2], json.dumps(codes), actor, reason)).lastrowid
+        db.execute("INSERT INTO audit_events(entity_type,entity_id,action,before_json,after_json,actor,reason) VALUES('master_product',?,'link_equivalent',?,?,?,?)",
+                   (str(target), json.dumps({'source_master_id': source, 'retired_code': rows[source][2]}),
+                    json.dumps({'legacy_codes': codes, 'link_id': link_id}), actor, reason))
+    return {'linked': True, 'link_id': link_id, 'codes': codes, 'retired_code': rows[source][2]}
+
+
+def unlink(db, data):
+    """Deshace una vinculación: el producto recupera sus códigos de origen y su código estándar original."""
+    from db.operations import credentials
+    actor, reason = credentials(data)
+    row = db.execute('''SELECT source_master_id,target_master_id,retired_code,legacy_codes_json FROM standard_code_links
+                        WHERE link_id=? AND undone_at IS NULL''', (int(data['link_id']),)).fetchone()
+    if not row:
+        raise ValueError('Vinculación inexistente o ya deshecha')
+    source, target, code, codes = row[0], row[1], row[2], json.loads(row[3])
+    with db:
+        db.execute('BEGIN IMMEDIATE')
+        marks = ','.join('?' * len(codes))
+        legacy = [lid for (lid,) in db.execute(f'''SELECT l.legacy_id FROM legacy_products l JOIN product_mappings p USING(legacy_id)
+                                                  WHERE p.master_id=? AND l.legacy_code IN ({marks})''', [target] + codes)]
+        lmarks = ','.join('?' * len(legacy)) or 'NULL'
+        db.execute(f'''UPDATE product_mappings SET master_id=?,method='initial',reason=?,decided_by=?,
+                       decided_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE legacy_id IN ({lmarks})''', [source, reason, actor] + legacy)
+        if db.execute("SELECT 1 FROM sqlite_master WHERE name='unified_catalog_reviews'").fetchone():
+            db.execute(f'UPDATE unified_catalog_reviews SET master_id=? WHERE legacy_id IN ({lmarks})', [source] + legacy)
+        db.execute("UPDATE master_products SET status='active' WHERE master_id=?", (source,))
+        # El código estándar original se restaura; la próxima estandarización completa el resto de los datos.
+        db.execute('''INSERT OR REPLACE INTO product_standards(master_id,standard_code,method,operational_status,search_text,rules_version)
+                      VALUES(?,?,'Revisar: vínculo deshecho','Activo',?,?)''', (source, code, R.words(' '.join([code or ''] + codes)), R.RULES_VERSION))
+        db.execute("UPDATE standard_code_links SET undone_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE link_id=?", (int(data['link_id']),))
+        db.execute("INSERT INTO audit_events(entity_type,entity_id,action,after_json,actor,reason) VALUES('master_product',?,'unlink_equivalent',?,?,?)",
+                   (str(target), json.dumps({'source_master_id': source, 'restored_code': code, 'legacy_codes': codes}), actor, reason))
+    return {'unlinked': True, 'restored_code': code, 'codes': codes}
 
 
 def search_group(db, group, exclude=None):
     rows = db.execute(SEARCH_SQL + ' WHERE p.duplicate_group=? AND p.master_id<>?', (group, exclude or -1)).fetchall()
-    return [dict(zip(SEARCH_FIELDS, r)) for r in rows]
+    return [_product(r) for r in rows]
 
 
 # ---------------------------------------------------------------- productos nuevos
@@ -457,7 +577,7 @@ def propose(db, data):
     family, method = R.classify(base, (), data.get('product_type'), data.get('package_type'))
     families = _families(db)
     dkey = R.duplicate_key(base, bk, model)
-    exact = [dict(zip(SEARCH_FIELDS, r)) for r in db.execute(SEARCH_SQL + ' WHERE p.duplicate_key=?', (dkey,))]
+    exact = [_product(r) for r in db.execute(SEARCH_SQL + ' WHERE p.duplicate_key=?', (dkey,))]
     similar = search(db, ' '.join(R.words(base).split()[:3]), limit=8)['rows']
     return {'standard_name': R.standard_name(raw_name, brand, model), 'brand': brand, 'model': model,
             'family': family, 'family_id': families.get(family), 'method': method,
@@ -486,12 +606,19 @@ def create(db, data):
         method = 'Alta manual' if family_id else 'Revisar: sin regla'
         base = R.normalize_name(data['name'])
         search_text = R.words(' '.join(filter(None, [proposal['standard_name'], proposal['brand'], proposal['model']])))
+        country, stock = None, {}
+        if data.get('site_id'):
+            site = db.execute('''SELECT c.country_code,s.site_type FROM sites s LEFT JOIN countries c USING(country_id)
+                                 WHERE s.site_id=?''', (int(data['site_id']),)).fetchone()
+            country = site[0] if site else None
+            if site and data.get('stock') and site[1] in R.AVAILABLE_SITE_TYPES and _number(data['stock']) > 0:
+                stock = {country or 'Sin país': _number(data['stock'])}
         db.execute('''INSERT OR IGNORE INTO product_standards(master_id,standard_name,manufacturer_id,model,family_id,method,
-                      operational_status,duplicate_key,legacy_codes,stock_available,search_text,rules_version)
-                      VALUES(?,?,?,?,?,?,?,?,NULL,?,?,?)''',
+                      operational_status,duplicate_key,legacy_codes,countries,stock_available,search_text,presence_countries,
+                      stock_by_country,rules_version) VALUES(?,?,?,?,?,?,?,?,NULL,?,?,?,?,?,?)''',
                    (mid, proposal['standard_name'], maker, proposal['model'], family_id, method, proposal['status'],
-                    R.duplicate_key(base, R.brand_key(data.get('brand')), proposal['model']),
-                    _number(data.get('stock')) if data.get('site_id') and data.get('stock') else 0, search_text, R.RULES_VERSION))
+                    R.duplicate_key(base, R.brand_key(data.get('brand')), proposal['model']), ', '.join(stock) or None,
+                    sum(stock.values()), search_text, country, json.dumps(stock, ensure_ascii=False), R.RULES_VERSION))
         code = _assign_code(db, mid)
         _refresh_groups(db)
     code = db.execute('SELECT standard_code FROM product_standards WHERE master_id=?', (mid,)).fetchone()[0]

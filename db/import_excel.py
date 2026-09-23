@@ -157,7 +157,10 @@ def stage_frame(connection, frame, source, filename, digest, sheet_name=None):
                         by_code[code][field].add(norm[field])
             if norm.get('SITEID') and norm.get('SITENAME'):
                 site_names[norm['SITEID']].add(norm['SITENAME'])
-        for index,raw,norm,problems in rows:
+        # Inserción por lotes: los ids se asignan dentro de la misma transacción (mucho más rápido que fila a fila).
+        next_id = connection.execute('SELECT COALESCE(max(raw_record_id),0)+1 FROM raw_records').fetchone()[0]
+        raw_rows, norm_rows, class_rows, issue_rows = [], [], [], []
+        for raw_id,(index,raw,norm,problems) in enumerate(rows,next_id):
             key = (norm.get('Product ID'),norm.get('SITEID'))
             if keys[key]>1:
                 problems.append(('error','Product ID + SITEID','duplicate_key','Clave repetida dentro del archivo; ninguna fila se descarta'))
@@ -167,10 +170,9 @@ def stage_frame(connection, frame, source, filename, digest, sheet_name=None):
             if len(site_names.get(key[1],set()))>1:
                 problems.append(('error','SITENAME','conflicting_site','Un sitio tiene nombres distintos'))
             quarantined = bool(missing) or any(p[0]=='error' for p in problems)
-            raw_id = connection.execute('INSERT INTO raw_records(load_id,excel_row,raw_json,validation_status,validation_reason) VALUES(?,?,?,?,?)',
-                (load_id,index,json.dumps(raw,ensure_ascii=False),'quarantined' if quarantined else 'accepted',
-                 json.dumps(problems,ensure_ascii=False))).lastrowid
-            connection.execute('INSERT INTO normalized_records VALUES(?,?,?)',(raw_id,json.dumps(norm,ensure_ascii=False),RULES_VERSION))
+            raw_rows.append((raw_id,load_id,index,json.dumps(raw,ensure_ascii=False),'quarantined' if quarantined else 'accepted',
+                             json.dumps(problems,ensure_ascii=False)))
+            norm_rows.append((raw_id,json.dumps(norm,ensure_ascii=False),RULES_VERSION))
             for field in FIELDS:
                 value=raw.get(field)
                 if value is None or not str(value).strip():
@@ -180,10 +182,12 @@ def stage_frame(connection, frame, source, filename, digest, sheet_name=None):
                 if key not in labels:
                     labels[key]=connection.execute('INSERT INTO classification_values(source_id,field_name,raw_value) VALUES(?,?,?)',
                                                    (source_id,field,value)).lastrowid
-                connection.execute('INSERT INTO record_classifications(raw_record_id,field_name,value_id) VALUES(?,?,?)',
-                                   (raw_id,field,labels[key]))
-            connection.executemany('INSERT INTO validation_issues(load_id,raw_record_id,severity,field,code,message) VALUES(?,?,?,?,?,?)',
-                                   [(load_id,raw_id,*p) for p in problems])
+                class_rows.append((raw_id,field,labels[key]))
+            issue_rows.extend((load_id,raw_id,*p) for p in problems)
+        connection.executemany('INSERT INTO raw_records(raw_record_id,load_id,excel_row,raw_json,validation_status,validation_reason) VALUES(?,?,?,?,?,?)',raw_rows)
+        connection.executemany('INSERT INTO normalized_records VALUES(?,?,?)',norm_rows)
+        connection.executemany('INSERT INTO record_classifications(raw_record_id,field_name,value_id) VALUES(?,?,?)',class_rows)
+        connection.executemany('INSERT INTO validation_issues(load_id,raw_record_id,severity,field,code,message) VALUES(?,?,?,?,?,?)',issue_rows)
         connection.executemany('INSERT INTO validation_issues(load_id,raw_record_id,severity,field,code,message) VALUES(?,NULL,?,?,?,?)',
                                [(load_id,*p) for p in global_issues])
         report = summary(connection,load_id)
@@ -191,6 +195,15 @@ def stage_frame(connection, frame, source, filename, digest, sheet_name=None):
         connection.execute("INSERT INTO audit_events(entity_type,entity_id,action,after_json,actor,reason) VALUES('load',?,'stage',?,'importador','Importacion y normalizacion; sin publicacion')",
                            (str(load_id),json.dumps(report,ensure_ascii=False)))
     return report
+
+
+def excel_engine():
+    """calamine (Rust) lee el mismo contenido unas 4 veces más rápido que openpyxl; si no está instalado, openpyxl."""
+    try:
+        import python_calamine  # noqa: F401
+        return 'calamine'
+    except ImportError:
+        return None
 
 
 def import_excel(path, db, source='RLA_Productos'):
@@ -202,7 +215,7 @@ def import_excel(path, db, source='RLA_Productos'):
         existing = connection.execute('SELECT l.load_id FROM loads l JOIN sources s USING(source_id) WHERE s.name=? AND l.sha256=?',(source,digest)).fetchone()
         if existing:
             return summary(connection,existing[0],True)
-        with pd.ExcelFile(BytesIO(content)) as book:
+        with pd.ExcelFile(BytesIO(content), engine=excel_engine()) as book:
             if 'Lista de productos' not in book.sheet_names:
                 raise ValueError('No se encuentra la hoja Lista de productos; no se elige otra automaticamente')
             frame = pd.read_excel(book,sheet_name='Lista de productos',dtype=str,keep_default_na=False)

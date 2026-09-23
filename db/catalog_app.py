@@ -174,6 +174,12 @@ def handler(dbpath, token, port):
                         load_id = latest_load(db)
                         result = {'saved': len(changes), 'standardization': std.apply(db, load_id, data['actor']) if load_id else None,
                                   'export': refresh_export(db, dbpath)}
+                    elif self.path in ('/api/link', '/api/unlink'):  # equivalentes: requiere responsable y motivo
+                        result = (std.link if self.path == '/api/link' else std.unlink)(db, data)
+                        load_id = latest_load(db)
+                        if load_id:
+                            std.apply(db, load_id, data['actor'])
+                        result['export'] = refresh_export(db, dbpath)
                     elif self.path == '/api/review':  # opcional: requiere responsable y motivo explícitos
                         result = op.save_review(db, data)
                         mid = db.execute('SELECT master_id FROM unified_catalog_reviews WHERE load_id=? AND legacy_id=?',
@@ -206,10 +212,13 @@ def prepare(dbpath):
             for (load_id,) in db.execute('SELECT DISTINCT load_id FROM unified_catalog_reviews').fetchall(): op.ensure_sample(db, load_id)
         if db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok': raise ValueError('Integridad inválida')
         load_id = latest_load(db)
-        if load_id and not std.latest_summary(db):  # base existente que nunca se estandarizó
-            print(f'Estandarizando la carga {load_id} por primera vez…', flush=True)
+        # Base que nunca se estandarizó, o estandarizada con una versión sin stock por país: se recalcula al iniciar.
+        outdated = db.execute('SELECT 1 FROM product_standards WHERE stock_by_country IS NULL AND legacy_codes IS NOT NULL LIMIT 1').fetchone()
+        if load_id and (not std.latest_summary(db) or outdated):
+            print(f'Estandarizando la carga {load_id}…', flush=True)
             std.apply(db, load_id, 'inicio de la aplicación')
-        if load_id and not export_path(dbpath).is_file():
+            refresh_export(db, dbpath)
+        elif load_id and not export_path(dbpath).is_file():
             refresh_export(db, dbpath)
     return saved
 

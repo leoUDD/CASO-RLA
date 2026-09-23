@@ -18,7 +18,7 @@ python -m db.catalog_app
 ```
 
 Abrir **http://127.0.0.1:8766/** y, en **1. Cargar Excel**, elegir `Lista_Productos.xlsx` (hoja *Lista de
-productos*). No se piden más datos: tratamiento, estandarización y exportación ocurren solos, en unos 35 segundos
+productos*). No se piden más datos: tratamiento, estandarización y exportación ocurren solos, en unos 24 segundos
 con el archivo real. Si la base `data/rla_modelo_v4.sqlite3` no existe, se crea vacía. La base exportada queda en
 `data/exports/catalogo_estandarizado.sqlite3` y se puede descargar desde la pestaña **4. Base SQLite**.
 
@@ -36,7 +36,9 @@ Pruebas: `python -m unittest discover -s db -p "test_*.py"`.
 | **6. Nuevo producto** | manual | Mientras se escribe se muestran el nombre estandarizado, la familia sugerida y los productos iguales o parecidos. Al crearlo recibe su código. |
 | **Administración** | opcional | Asignar país a sitios sin evidencia, revisar clasificaciones dudosas, excluir registros de sistema, publicar el inventario, volver a ejecutar las reglas. Aquí el responsable es obligatorio. |
 
-En el flujo, el responsable es opcional: si se deja vacío, la auditoría registra "Usuario RLA".
+El **responsable** solo sirve para la auditoría: registra quién tomó cada decisión. No es un login. En el flujo
+(cargar, buscar, crear) no se pide y la auditoría registra "Usuario RLA". Se pide solo en decisiones de calidad:
+vincular productos y las tareas de Administración.
 
 ### Reglas de estandarización (`db/std_rules.py`)
 
@@ -54,7 +56,15 @@ En el flujo, el responsable es opcional: si se deja vacío, la auditoría regist
 - **Sitios**: el país se deduce por palabras clave o por el prefijo de país de los códigos del sitio. El tipo
   de sitio es uno de estos: bodega, sede, servicio técnico, venta, descarte, ajuste o administrativo. Solo el
   stock de bodegas y sedes cuenta como disponible.
-- **Duplicados**: se marcan los productos con el mismo nombre, marca y modelo. Nunca se fusionan solos.
+- **Duplicados y equivalentes**: se agrupan los productos con el mismo nombre, marca y modelo, en dos tipos.
+  **Duplicado en el mismo país**: dos fichas del mismo producto en un país; es el problema a resolver.
+  **Equivalente en otro país**: cada país tiene su propio código del mismo producto; es esperable. Un país
+  está "presente" si el código tiene al menos un registro en un sitio de ese país. En ambos casos, desde el
+  detalle del producto se pueden **vincular**: comparten un código estándar, los códigos de cada país quedan
+  como equivalencias y el código retirado se sigue encontrando al buscar. Nunca se fusionan solos, y la
+  vinculación se puede deshacer, con auditoría.
+- **Stock por país**: el stock disponible se guarda y se muestra por país (por ejemplo, `CL: 13 · CO: 5`) y
+  **nunca se suma entre países**, ni siquiera entre productos vinculados. El inventario sigue por código × sitio.
 
 Las decisiones de las personas (revisiones, país asignado a un sitio, altas manuales) prevalecen sobre las
 reglas y se conservan al volver a estandarizar. Todo queda en `audit_events`.
@@ -75,8 +85,9 @@ reglas y se conservan al volver a estandarizar. Todo queda en `audit_events`.
 
 ## Base exportada
 
-`productos`, `codigos_origen`, `categorias`, `familias`, `marcas`, `marca_alias`, `paises`, `sitios`,
-`inventario`, `metadatos` y las vistas `v_catalogo` y `v_stock_por_pais`.
+`productos` (incluye `stock_por_pais` y `tipo_duplicado`), `stock_disponible_por_pais`, `codigos_origen`,
+`codigos_estandar_retirados`, `categorias`, `familias`, `marcas`, `marca_alias`, `paises`, `sitios`, `inventario`,
+`metadatos` y las vistas `v_catalogo` y `v_stock_por_pais`.
 
 ## Límites conocidos
 

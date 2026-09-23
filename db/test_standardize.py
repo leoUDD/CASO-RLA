@@ -31,6 +31,8 @@ ROWS = [
     record('11135', 'Parlante activo', 'BOTAR CHILE', 'Botar Chile', Stock='5,00', MANUFACTURER='BOSE'),
     record('11135', 'Parlante activo', 'H. W', 'H. W', Stock='7,00', MANUFACTURER='BOSE'),
     record('11136', 'Objeto sin regla conocida'),
+    record('11140', 'Cable HDMI 5 metros', Stock='4,00'),   # misma ficha dos veces en Chile → duplicado
+    record('11141', 'Cable HDMI 5 mts', Stock='1,00'),
 ]
 
 
@@ -88,12 +90,16 @@ class StandardizeDatabaseTests(unittest.TestCase):
         self.assertEqual(self.product('10208')['family'], 'Cables y adaptadores')
         self.assertIsNone(self.product('11134')['standard_code'])  # "NO USAR": sin código nuevo
         self.assertEqual(self.product('11136')['method'], 'Revisar: sin regla')
-        # Mismo proyector en Chile y Colombia con otra escritura de marca/modelo → candidato a duplicado
+        # Mismo proyector en Chile y Colombia con otra escritura de marca/modelo → equivalente entre países
         self.assertIsNotNone(self.product('CO PRY01')['duplicate_group'])
         self.assertEqual(self.product('CO PRY01')['duplicate_group'], self.product('11133')['duplicate_group'])
+        self.assertEqual(self.product('CO PRY01')['duplicate_kind'], 'Otro país')
+        # Dos fichas del mismo cable en Chile → duplicado en el mismo país
+        self.assertEqual(self.product('11140')['duplicate_kind'], 'Mismo país')
         self.assertIsNone(self.product('10208')['duplicate_group'])  # 30 m ≠ 20 m
-        # El stock en un sitio de descarte no cuenta como disponible
-        self.assertEqual(self.product('11135')['stock_available'], 7.0)
+        # Stock por país, sin sumar países; el stock en un sitio de descarte no cuenta como disponible
+        self.assertEqual(json.loads(self.product('11135')['stock_by_country']), {'Sin país': 7.0})
+        self.assertEqual(json.loads(self.product('CO PRY01')['stock_by_country']), {'CO': 2.0})
         sites = {s['code']: s for s in std.sites(self.db)}
         self.assertEqual((sites['CD BOGOTA']['country'], sites['BOTAR CHILE']['site_type']), ('CO', 'Descarte / baja'))
 
@@ -107,6 +113,7 @@ class StandardizeDatabaseTests(unittest.TestCase):
         std.apply(self.db, self.load)
         self.assertEqual(next(s for s in std.sites(self.db) if s['code'] == 'H. W')['country'], 'CL')
         self.assertIn('CL', self.product('11135')['countries'])
+        self.assertEqual(json.loads(self.product('11135')['stock_by_country']), {'CL': 7.0})
 
     def test_search_and_new_product(self):
         found = std.search(self.db, 'microfono shure')
@@ -137,6 +144,27 @@ class StandardizeDatabaseTests(unittest.TestCase):
         std.apply(self.db, self.load)  # la decisión humana prevalece sobre la regla
         self.assertEqual(self.product('11136')['method'], 'Revisor')
 
+    def test_link_equivalents_keeps_inventory_by_country(self):
+        cl, co = self.product('11133'), self.product('CO PRY01')
+        with self.assertRaises(ValueError):
+            std.link(self.db, {'target_id': cl['master_id'], 'source_id': co['master_id'], 'actor': '', 'reason': 'x'})
+        result = std.link(self.db, dict(self.who, target_id=cl['master_id'], source_id=co['master_id']))
+        self.assertEqual((result['codes'], result['retired_code']), (['CO PRY01'], co['standard_code']))
+        std.apply(self.db, self.load)
+        linked = self.product('11133')
+        self.assertEqual(linked['legacy_codes'], '11133, CO PRY01')
+        self.assertEqual(linked['standard_code'], cl['standard_code'])                 # conserva el código del destino
+        self.assertEqual(json.loads(linked['stock_by_country']), {'CL': 2.0, 'CO': 2.0})  # separado por país
+        self.assertIsNone(linked['duplicate_group'])
+        self.assertEqual(std.search(self.db, co['standard_code'])['rows'][0]['master_id'], cl['master_id'])  # código retirado sigue sirviendo
+        std.apply(self.db, self.load)  # una nueva estandarización no deshace la vinculación
+        self.assertEqual(self.product('CO PRY01')['master_id'], cl['master_id'])
+        link_id = std.detail(self.db, cl['master_id'])['links'][0]['link_id']
+        std.unlink(self.db, dict(self.who, link_id=link_id))
+        std.apply(self.db, self.load)
+        self.assertEqual(self.product('CO PRY01')['standard_code'], co['standard_code'])  # recupera su código original
+        self.assertEqual(self.product('11133')['legacy_codes'], '11133')
+
     def test_export(self):
         out = Path(self.tmp.name) / 'export.sqlite3'
         info = export(self.db, out)
@@ -145,6 +173,8 @@ class StandardizeDatabaseTests(unittest.TestCase):
             self.assertEqual(e.execute("SELECT familia FROM v_catalogo WHERE codigos_origen='10063'").fetchone()[0], 'Micrófonos')
             self.assertEqual(e.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
             self.assertGreater(e.execute('SELECT count(*) FROM inventario').fetchone()[0], 0)
+            self.assertEqual(e.execute("SELECT stock_por_pais,tipo_duplicado FROM v_catalogo WHERE codigos_origen='CO PRY01'").fetchone(), ('CO: 2', 'Otro país'))
+            self.assertEqual(e.execute("SELECT count(DISTINCT pais) FROM stock_disponible_por_pais").fetchone()[0], 3)
             self.assertEqual(json.loads(json.dumps(dict(e.execute('SELECT * FROM metadatos'))))['version_reglas'], R.RULES_VERSION)
 
 

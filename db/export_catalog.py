@@ -28,7 +28,11 @@ CREATE TABLE sitios(sitio_id INTEGER PRIMARY KEY, fuente TEXT NOT NULL, codigo_s
 CREATE TABLE productos(producto_id INTEGER PRIMARY KEY, codigo_estandar TEXT UNIQUE, codigo_maestro TEXT NOT NULL UNIQUE,
   nombre_estandar TEXT, marca_id INTEGER REFERENCES marcas, modelo TEXT, familia_id INTEGER REFERENCES familias,
   tipo TEXT, paquete TEXT, serializacion TEXT, origen TEXT NOT NULL, estado_operativo TEXT NOT NULL,
-  metodo_clasificacion TEXT NOT NULL, grupo_duplicado TEXT, stock_disponible REAL, paises_con_stock TEXT);
+  metodo_clasificacion TEXT NOT NULL, grupo_duplicado TEXT, tipo_duplicado TEXT, paises_presencia TEXT, stock_por_pais TEXT);
+CREATE TABLE stock_disponible_por_pais(producto_id INTEGER NOT NULL REFERENCES productos, pais TEXT NOT NULL, stock REAL NOT NULL,
+  PRIMARY KEY(producto_id,pais));
+CREATE TABLE codigos_estandar_retirados(codigo_retirado TEXT PRIMARY KEY, producto_id INTEGER NOT NULL REFERENCES productos,
+  codigos_origen TEXT NOT NULL, vinculado_por TEXT NOT NULL, motivo TEXT NOT NULL, vinculado_en TEXT NOT NULL);
 CREATE TABLE codigos_origen(fuente TEXT NOT NULL, codigo_origen TEXT NOT NULL, producto_id INTEGER NOT NULL REFERENCES productos,
   descripcion_original TEXT, PRIMARY KEY(fuente,codigo_origen));
 CREATE TABLE inventario(producto_id INTEGER NOT NULL REFERENCES productos, sitio_id INTEGER NOT NULL REFERENCES sitios,
@@ -38,8 +42,8 @@ CREATE INDEX productos_familia ON productos(familia_id);
 CREATE INDEX inventario_sitio ON inventario(sitio_id);
 CREATE VIEW v_catalogo AS
   SELECT p.codigo_estandar,p.codigo_maestro,p.nombre_estandar,m.nombre AS marca,p.modelo,c.nombre AS categoria,
-         f.nombre AS familia,p.tipo,p.paquete,p.estado_operativo,p.metodo_clasificacion,p.grupo_duplicado,
-         p.stock_disponible,p.paises_con_stock,
+         f.nombre AS familia,p.tipo,p.paquete,p.estado_operativo,p.metodo_clasificacion,p.grupo_duplicado,p.tipo_duplicado,
+         p.paises_presencia,p.stock_por_pais,
          (SELECT group_concat(codigo_origen,', ') FROM codigos_origen o WHERE o.producto_id=p.producto_id) AS codigos_origen
   FROM productos p LEFT JOIN marcas m USING(marca_id) LEFT JOIN familias f USING(familia_id) LEFT JOIN categorias c USING(categoria_id);
 CREATE VIEW v_stock_por_pais AS
@@ -77,11 +81,22 @@ def export(db, out_path):
                 (sid, src, code, name, country, csrc, kind, int(kind in R.AVAILABLE_SITE_TYPES)) for sid, src, code, name, country, csrc, kind in db.execute(
                     '''SELECT s.site_id,f.name,s.source_site_code,s.name,c.country_code,s.country_source,s.site_type
                        FROM sites s JOIN sources f USING(source_id) LEFT JOIN countries c USING(country_id)''')])
-            out.executemany('INSERT INTO productos VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', db.execute(
+            products = db.execute(
                 '''SELECT p.master_id,p.standard_code,m.master_code,p.standard_name,p.manufacturer_id,p.model,p.family_id,
                           m.product_type,m.package_type,m.serialization,m.origin,p.operational_status,p.method,p.duplicate_group,
-                          p.stock_available,p.countries
-                   FROM product_standards p JOIN master_products m USING(master_id)''').fetchall())
+                          p.duplicate_kind,p.presence_countries,p.stock_by_country
+                   FROM product_standards p JOIN master_products m USING(master_id)''').fetchall()
+            stock_rows = []
+            for row in products:
+                by_country = json.loads(row[16] or '{}')
+                stock_rows.extend((row[0], country, qty) for country, qty in by_country.items())
+            out.executemany('INSERT INTO productos VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [
+                tuple(row)[:16] + (' · '.join(f'{c}: {q:g}' for c, q in json.loads(row[16] or '{}').items()) or None,) for row in products])
+            out.executemany('INSERT INTO stock_disponible_por_pais VALUES(?,?,?)', stock_rows)
+            out.executemany('INSERT INTO codigos_estandar_retirados VALUES(?,?,?,?,?,?)', [
+                (code, target, ', '.join(json.loads(codes)), actor, reason, at) for code, target, codes, actor, reason, at in db.execute(
+                    '''SELECT retired_code,target_master_id,legacy_codes_json,actor,reason,linked_at FROM standard_code_links
+                       WHERE undone_at IS NULL AND retired_code IS NOT NULL''')])
             originals = {}
             if load:
                 for payload in db.execute('''SELECT n.normalized_json FROM raw_records r JOIN normalized_records n USING(raw_record_id)
